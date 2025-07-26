@@ -1,4 +1,4 @@
-import { Button } from "./ui/button";
+import { Button } from "/button";
 import { Input } from "./ui/input";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";

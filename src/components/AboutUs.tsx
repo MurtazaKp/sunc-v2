@@ -81,19 +81,19 @@ export function AboutUs() {
 
   const leadership = [
     {
-      name: "Rajesh Kumar",
+      name: "Jagdish Jadhav",
       role: "Founder & CEO",
       description:
         "Visionary leader with 15+ years in renewable energy and battery technology innovation.",
     },
     {
-      name: "Priya Sharma",
-      role: "Chief Technology Officer",
+      name: "Amol Jadhav",
+      role: "Chief Technology Officer & CRM Manager",
       description:
         "Expert in battery regeneration technology with multiple patents in sustainable energy solutions.",
     },
     {
-      name: "Amit Patel",
+      name: "Sharad Dongre",
       role: "Head of Operations",
       description:
         "Operations specialist ensuring quality and efficiency across all 75+ service centers.",

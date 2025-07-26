@@ -106,18 +106,11 @@ export function Footer({ onNavigate }: FooterProps) {
         <div className="grid lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 rounded-lg bg-primary p-2">
-                <Battery className="h-5 w-5 text-primary-foreground" />
-                <Zap className="h-4 w-4 text-primary-foreground" />
+            <button className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <div>
+                <img className="w-20 h-18" src="/SuncLogo.svg" alt="" />
               </div>
-              <div className="flex flex-col items-start">
-                <span className="text-xl tracking-wide text-primary">SunC</span>
-                <span className="text-xs text-muted-foreground -mt-1">
-                  Battery Solutions
-                </span>
-              </div>
-            </div>
+            </button>
 
             <p className="text-sm text-muted-foreground leading-relaxed">
               Pioneering sustainable battery solutions in India since 2014.

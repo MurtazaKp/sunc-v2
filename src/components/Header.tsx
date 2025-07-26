@@ -80,21 +80,15 @@ export function Header({ activePage, onNavigate }: HeaderProps) {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-64">
-            <div className="flex flex-col gap-4 mt-8">
-              <div className="flex items-center gap-2 pb-4 border-b">
-                <div className="flex items-center gap-1 rounded-lg bg-primary p-2">
-                  <Battery className="h-5 w-5 text-primary-foreground" />
-                  <Zap className="h-4 w-4 text-primary-foreground" />
+            <div className="flex flex-col gap-4 mt-8 px-5">
+              <button
+                onClick={() => handleNavClick("home")}
+                className="flex items-center gap-2 hover:opacity-80 transition-opacity mb-6"
+              >
+                <div>
+                  <img className="w-16 h-14" src="/SuncLogo.svg" alt="" />
                 </div>
-                <div className="flex flex-col items-start">
-                  <span className="text-lg tracking-wide text-primary">
-                    SunC
-                  </span>
-                  <span className="text-xs text-muted-foreground -mt-1">
-                    Battery Solutions
-                  </span>
-                </div>
-              </div>
+              </button>
 
               <nav className="flex flex-col gap-3">
                 {navigation.map((item) => (

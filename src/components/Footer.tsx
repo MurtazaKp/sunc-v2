@@ -2,9 +2,8 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
+
 import {
-  Battery,
-  Zap,
   Phone,
   Mail,
   MapPin,
@@ -24,20 +23,25 @@ type ActivePage =
   | "home"
   | "about"
   | "services"
+  | "products"
   | "applications"
   | "faq"
-  | "contact";
+  | "contact"
+  | "partner";
 
 interface FooterProps {
   onNavigate: (page: ActivePage) => void;
+  onGetQuote: () => void;
 }
 
-export function Footer({ onNavigate }: FooterProps) {
+export function Footer({ onNavigate, onGetQuote }: FooterProps) {
   const quickLinks = [
     { name: "Home", key: "home" as const },
     { name: "About Us", key: "about" as const },
     { name: "Services", key: "services" as const },
+    { name: "Products", key: "products" as const },
     { name: "Applications", key: "applications" as const },
+    { name: "Partner", key: "partner" as const },
     { name: "FAQ", key: "faq" as const },
     { name: "Contact", key: "contact" as const },
   ];
@@ -49,6 +53,15 @@ export function Footer({ onNavigate }: FooterProps) {
     "Bulk Services",
     "Technical Consulting",
     "Training Programs",
+  ];
+
+  const products = [
+    "RG-4X Regenerator",
+    "RG-8X Regenerator",
+    "RG-16X Regenerator",
+    "Monitoring Systems",
+    "Accessories",
+    "Spare Parts",
   ];
 
   const industries = [
@@ -103,18 +116,25 @@ export function Footer({ onNavigate }: FooterProps) {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-5 gap-8">
+        <div className="grid lg:grid-cols-6 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
-            <button className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div>
-                <img className="w-20 h-18" src="/SuncLogo.svg" alt="" />
+            <div className="flex items-center gap-3">
+              <img
+                src={"/SuncLogo.svg"}
+                alt="SunC Battery Solutions Logo"
+                className="h-12 w-auto"
+              />
+              <div className="flex flex-col items-start">
+                <span className="text-sm text-muted-foreground">
+                  Battery Solutions
+                </span>
               </div>
-            </button>
+            </div>
 
             <p className="text-sm text-muted-foreground leading-relaxed">
               Pioneering sustainable battery solutions in India since 2014.
-              We&#39;ve regenerated 15,000+ batteries across 75+ service
+              We&apos;ve regenerated 15,000+ batteries across 75+ service
               centers, helping businesses save costs while protecting the
               environment.
             </p>
@@ -190,7 +210,22 @@ export function Footer({ onNavigate }: FooterProps) {
             </nav>
           </div>
 
-          {/* Industries */}
+          {/* Products */}
+          <div className="space-y-4">
+            <h3 className="text-lg">Products</h3>
+            <nav className="space-y-2">
+              {products.map((product) => (
+                <div
+                  key={product}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
+                  {product}
+                </div>
+              ))}
+            </nav>
+          </div>
+
+          {/* Industries & CTA */}
           <div className="space-y-4">
             <h3 className="text-lg">Industries</h3>
             <nav className="space-y-2">
@@ -204,8 +239,18 @@ export function Footer({ onNavigate }: FooterProps) {
               ))}
             </nav>
 
+            {/* Quote CTA */}
+            <Card className="mt-6 bg-primary/5 border-primary/20">
+              <CardContent className="p-4 text-center">
+                <h4 className="text-sm mb-2">Need a Quote?</h4>
+                <Button onClick={onGetQuote} size="sm" className="w-full">
+                  Get Instant Quote
+                </Button>
+              </CardContent>
+            </Card>
+
             {/* Emergency Contact */}
-            <Card className="mt-6 bg-red-50 border-red-200">
+            <Card className="bg-red-50 border-red-200">
               <CardContent className="p-4 text-center">
                 <Phone className="h-5 w-5 text-red-600 mx-auto mb-2" />
                 <div className="text-sm">Emergency Support</div>

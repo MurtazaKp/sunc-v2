@@ -1,29 +1,34 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Menu, Battery, Zap, Phone } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 
 type ActivePage =
   | "home"
   | "about"
   | "services"
+  | "products"
   | "applications"
   | "faq"
-  | "contact";
+  | "contact"
+  | "partner";
 
 interface HeaderProps {
   activePage: ActivePage;
   onNavigate: (page: ActivePage) => void;
+  onGetQuote: () => void;
 }
 
-export function Header({ activePage, onNavigate }: HeaderProps) {
+export function Header({ activePage, onNavigate, onGetQuote }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navigation = [
     { name: "Home", key: "home" as const },
     { name: "About Us", key: "about" as const },
     { name: "Services", key: "services" as const },
+    { name: "Products", key: "products" as const },
     { name: "Applications", key: "applications" as const },
+    { name: "Partner", key: "partner" as const },
     { name: "FAQ", key: "faq" as const },
     { name: "Contact", key: "contact" as const },
   ];
@@ -33,21 +38,33 @@ export function Header({ activePage, onNavigate }: HeaderProps) {
     setIsOpen(false);
   };
 
+  const handleGetQuoteClick = () => {
+    onGetQuote();
+    setIsOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <button
           onClick={() => handleNavClick("home")}
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
-          <div>
-            <img className="w-16 h-14" src="/SuncLogo.svg" alt="" />
+          <img
+            src={"/SuncLogo.svg"}
+            alt="SunC Battery Solutions Logo"
+            className="h-10 w-auto"
+          />
+          <div className="flex flex-col items-start">
+            <span className="text-sm text-muted-foreground">
+              Battery Solutions
+            </span>
           </div>
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-6">
           {navigation.map((item) => (
             <button
               key={item.key}
@@ -69,26 +86,30 @@ export function Header({ activePage, onNavigate }: HeaderProps) {
             <Phone className="h-4 w-4" />
             <span>+91-XXX-XXX-XXXX</span>
           </div>
-          <Button onClick={() => handleNavClick("contact")}>Get Quote</Button>
+          <Button onClick={handleGetQuoteClick}>Get Quote</Button>
         </div>
 
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="md:hidden">
+            <Button variant="outline" size="icon" className="lg:hidden">
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-64">
-            <div className="flex flex-col gap-4 mt-8 px-5">
-              <button
-                onClick={() => handleNavClick("home")}
-                className="flex items-center gap-2 hover:opacity-80 transition-opacity mb-6"
-              >
-                <div>
-                  <img className="w-16 h-14" src="/SuncLogo.svg" alt="" />
+            <div className="flex flex-col gap-4 mt-8">
+              <div className="flex items-center gap-3 pb-4 border-b">
+                <img
+                  src={"/SuncLogo.svg"}
+                  alt="SunC Battery Solutions Logo"
+                  className="h-8 w-auto"
+                />
+                <div className="flex flex-col items-start">
+                  <span className="text-sm text-muted-foreground">
+                    Battery Solutions
+                  </span>
                 </div>
-              </button>
+              </div>
 
               <nav className="flex flex-col gap-3">
                 {navigation.map((item) => (
@@ -111,10 +132,7 @@ export function Header({ activePage, onNavigate }: HeaderProps) {
                   <Phone className="h-4 w-4" />
                   <span>+91-XXX-XXX-XXXX</span>
                 </div>
-                <Button
-                  className="w-full"
-                  onClick={() => handleNavClick("contact")}
-                >
+                <Button className="w-full" onClick={handleGetQuoteClick}>
                   Get Quote
                 </Button>
               </div>

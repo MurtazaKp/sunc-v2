@@ -99,11 +99,11 @@ export function Header({ activePage, onNavigate, onGetQuote }: HeaderProps) {
           <SheetContent side="right" className="w-64">
             <div className="flex flex-col gap-4 mt-8">
               <div className="flex items-center gap-3 pb-4 border-b">
-                <img
-                  src={"/SuncLogo.svg"}
-                  alt="SunC Battery Solutions Logo"
+                {/* <img 
+                  src={suncLogo} 
+                  alt="SunC Battery Solutions Logo" 
                   className="h-8 w-auto"
-                />
+                /> */}
                 <div className="flex flex-col items-start">
                   <span className="text-sm text-muted-foreground">
                     Battery Solutions

@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
-
+// import suncLogo from "figma:asset/5999997ad884f52431f480b4cf38b265dd2cfd2b.png";
 import {
   Phone,
   Mail,
@@ -17,6 +17,9 @@ import {
   Award,
   Leaf,
   Shield,
+  Zap,
+  Clock,
+  Globe,
 } from "lucide-react";
 
 type ActivePage =
@@ -49,46 +52,76 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
   const services = [
     "Battery Regeneration",
     "Regenerator Manufacturing",
-    "Battery Monitoring",
-    "Bulk Services",
     "Technical Consulting",
     "Training Programs",
+    "Bulk Services",
+    "Warranty Support",
   ];
 
   const products = [
     "RG-4X Regenerator",
     "RG-8X Regenerator",
     "RG-16X Regenerator",
-    "Monitoring Systems",
-    "Accessories",
-    "Spare Parts",
+    "Load Tester",
+    "Output Cable",
+    "Hydrometer",
   ];
 
   const industries = [
     "Healthcare",
-    "E-Rickshaw",
-    "Telecommunications",
+    "Banking",
     "Solar Power",
     "Industrial",
     "Transportation",
+    "Education",
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", name: "Facebook" },
-    { icon: Twitter, href: "#", name: "Twitter" },
-    { icon: Linkedin, href: "#", name: "LinkedIn" },
-    { icon: Instagram, href: "#", name: "Instagram" },
-    { icon: Youtube, href: "#", name: "YouTube" },
+    {
+      icon: Facebook,
+      href: "#",
+      name: "Facebook",
+      color: "hover:text-blue-600",
+    },
+    { icon: Twitter, href: "#", name: "Twitter", color: "hover:text-blue-400" },
+    {
+      icon: Linkedin,
+      href: "#",
+      name: "LinkedIn",
+      color: "hover:text-blue-700",
+    },
+    {
+      icon: Instagram,
+      href: "#",
+      name: "Instagram",
+      color: "hover:text-pink-600",
+    },
+    { icon: Youtube, href: "#", name: "YouTube", color: "hover:text-red-600" },
+  ];
+
+  const serviceCenters = [
+    { city: "Mumbai", contact: "+91-9876543210" },
+    { city: "Delhi", contact: "+91-9876543211" },
+    { city: "Bangalore", contact: "+91-9876543212" },
+    { city: "Chennai", contact: "+91-9876543213" },
+    { city: "Kolkata", contact: "+91-9876543214" },
+    { city: "Pune", contact: "+91-9876543215" },
   ];
 
   return (
     <footer className="bg-muted/50 border-t">
       {/* Newsletter Section */}
       <div className="container mx-auto px-4 py-12">
-        <Card className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground">
-          <CardContent className="p-8 text-center space-y-6">
+        <Card className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground relative overflow-hidden">
+          <div className="absolute inset-0 cultural-pattern opacity-20"></div>
+          <CardContent className="p-8 text-center space-y-6 relative">
             <div className="space-y-2">
-              <h2 className="text-2xl">Stay Updated with Battery Innovation</h2>
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Zap className="h-6 w-6 animate-pulse" />
+                <h2 className="text-2xl">
+                  Stay Updated with Battery Innovation
+                </h2>
+              </div>
               <p className="text-primary-foreground/90">
                 Get the latest news on battery technology, tips for battery
                 maintenance, and exclusive offers
@@ -100,14 +133,17 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
                 placeholder="Enter your email"
                 className="bg-primary-foreground text-foreground placeholder:text-muted-foreground border-0"
               />
-              <Button variant="secondary" className="whitespace-nowrap">
+              <Button
+                variant="secondary"
+                className="whitespace-nowrap hover:scale-105 transition-transform"
+              >
                 Subscribe
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
 
             <p className="text-xs text-primary-foreground/70">
-              Join 5,000+ industry professionals who trust SunC for battery
+              Join 10,000+ industry professionals who trust SunC for battery
               insights
             </p>
           </CardContent>
@@ -120,21 +156,25 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-3">
-              <img
-                src={"/SuncLogo.svg"}
-                alt="SunC Battery Solutions Logo"
-                className="h-12 w-auto"
-              />
+              <div className="relative">
+                <img
+                  src={"/SuncLogo.svg"}
+                  alt="SunC Battery Solutions Logo"
+                  className=" h-16 w-auto"
+                />
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-green-500/20 rounded-lg blur opacity-75"></div>
+              </div>
               <div className="flex flex-col items-start">
-                <span className="text-sm text-muted-foreground">
+                <span className="text-lg bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
                   Battery Solutions
                 </span>
+                <span className="text-xs text-muted-foreground">Est. 2012</span>
               </div>
             </div>
 
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Pioneering sustainable battery solutions in India since 2014.
-              We&apos;ve regenerated 15,000+ batteries across 75+ service
+              Pioneering sustainable battery solutions in India since 2012.
+              We&apos;ve regenerated 40,000+ batteries across 400+ service
               centers, helping businesses save costs while protecting the
               environment.
             </p>
@@ -142,18 +182,18 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
             {/* Trust Indicators */}
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center">
-                <Award className="h-5 w-5 text-primary mx-auto mb-1" />
-                <div className="text-sm">15K+ Batteries</div>
+                <Award className="h-5 w-5 text-primary mx-auto mb-1 animate-pulse" />
+                <div className="text-sm">40K+ Batteries</div>
                 <div className="text-xs text-muted-foreground">Regenerated</div>
               </div>
               <div className="text-center">
-                <Shield className="h-5 w-5 text-green-500 mx-auto mb-1" />
-                <div className="text-sm">75+ Centers</div>
+                <Shield className="h-5 w-5 text-green-500 mx-auto mb-1 animate-pulse" />
+                <div className="text-sm">400+ Centers</div>
                 <div className="text-xs text-muted-foreground">Nationwide</div>
               </div>
               <div className="text-center">
-                <Leaf className="h-5 w-5 text-emerald-500 mx-auto mb-1" />
-                <div className="text-sm">98% Satisfaction</div>
+                <Leaf className="h-5 w-5 text-emerald-500 mx-auto mb-1 animate-pulse" />
+                <div className="text-sm">70-80% Satisfaction</div>
                 <div className="text-xs text-muted-foreground">
                   Customer Rate
                 </div>
@@ -163,17 +203,17 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm">+91-XXX-XXX-XXXX</span>
+                <Phone className="h-4 w-4 text-muted-foreground animate-pulse" />
+                <span className="text-sm">1800-XXX-XXXX (Toll Free)</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-muted-foreground" />
+                <Mail className="h-4 w-4 text-muted-foreground animate-pulse" />
                 <span className="text-sm">info@suncbattery.com</span>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 text-muted-foreground mt-0.5" />
+                <MapPin className="h-4 w-4 text-muted-foreground mt-0.5 animate-pulse" />
                 <span className="text-sm">
-                  123 Battery Street, Mumbai, Maharashtra 400001
+                  Head Office: 123 Battery Street, Mumbai, Maharashtra 400001
                 </span>
               </div>
             </div>
@@ -181,13 +221,16 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg">Quick Links</h3>
+            <h3 className="text-lg flex items-center gap-2">
+              <Globe className="h-5 w-5 text-primary animate-pulse" />
+              Quick Links
+            </h3>
             <nav className="space-y-2">
               {quickLinks.map((link) => (
                 <button
                   key={link.key}
                   onClick={() => onNavigate(link.key)}
-                  className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
                 >
                   {link.name}
                 </button>
@@ -197,12 +240,15 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="text-lg">Our Services</h3>
+            <h3 className="text-lg flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary animate-pulse" />
+              Our Services
+            </h3>
             <nav className="space-y-2">
               {services.map((service) => (
                 <div
                   key={service}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer hover:translate-x-1 transform duration-200"
                 >
                   {service}
                 </div>
@@ -212,12 +258,15 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
 
           {/* Products */}
           <div className="space-y-4">
-            <h3 className="text-lg">Products</h3>
+            <h3 className="text-lg flex items-center gap-2">
+              <Shield className="h-5 w-5 text-primary animate-pulse" />
+              Products
+            </h3>
             <nav className="space-y-2">
               {products.map((product) => (
                 <div
                   key={product}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer hover:translate-x-1 transform duration-200"
                 >
                   {product}
                 </div>
@@ -225,25 +274,37 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
             </nav>
           </div>
 
-          {/* Industries & CTA */}
+          {/* Service Centers & CTA */}
           <div className="space-y-4">
-            <h3 className="text-lg">Industries</h3>
-            <nav className="space-y-2">
-              {industries.map((industry) => (
-                <div
-                  key={industry}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
-                >
-                  {industry}
+            <h3 className="text-lg flex items-center gap-2">
+              <MapPin className="h-5 w-5 text-primary animate-pulse" />
+              Service Centers
+            </h3>
+            <div className="space-y-2">
+              {serviceCenters.slice(0, 4).map((center) => (
+                <div key={center.city} className="text-sm">
+                  <div className="font-medium text-muted-foreground">
+                    {center.city}
+                  </div>
+                  <div className="text-xs text-primary hover:underline cursor-pointer">
+                    {center.contact}
+                  </div>
                 </div>
               ))}
-            </nav>
+            </div>
 
             {/* Quote CTA */}
-            <Card className="mt-6 bg-primary/5 border-primary/20">
+            <Card className="mt-6 bg-gradient-to-r from-primary/5 to-green-500/5 border-primary/20">
               <CardContent className="p-4 text-center">
-                <h4 className="text-sm mb-2">Need a Quote?</h4>
-                <Button onClick={onGetQuote} size="sm" className="w-full">
+                <h4 className="text-sm mb-2 flex items-center justify-center gap-2">
+                  <Clock className="h-4 w-4 animate-pulse" />
+                  Need a Quote?
+                </h4>
+                <Button
+                  onClick={onGetQuote}
+                  size="sm"
+                  className="w-full hover:scale-105 transition-transform"
+                >
                   Get Instant Quote
                 </Button>
               </CardContent>
@@ -252,16 +313,16 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
             {/* Emergency Contact */}
             <Card className="bg-red-50 border-red-200">
               <CardContent className="p-4 text-center">
-                <Phone className="h-5 w-5 text-red-600 mx-auto mb-2" />
+                <Phone className="h-5 w-5 text-red-600 mx-auto mb-2 animate-pulse" />
                 <div className="text-sm">Emergency Support</div>
                 <div className="text-xs text-red-600">24/7 Available</div>
                 <Button
                   size="sm"
                   variant="outline"
-                  className="mt-2 text-red-600 border-red-300 hover:bg-red-100"
+                  className="mt-2 text-red-600 border-red-300 hover:bg-red-100 hover:scale-105 transition-transform"
                 >
-                  <MessageCircle className="mr-2 h-3 w-3" />
-                  WhatsApp
+                  <MessageCircle className="mr-2 h-3 w-3 animate-pulse" />
+                  Call Now (Support)
                 </Button>
               </CardContent>
             </Card>
@@ -276,17 +337,17 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
           {/* Copyright */}
           <div className="text-sm text-muted-foreground">
-            © 2024 SunC Battery Solutions. All rights reserved. |
-            <span className="hover:text-primary cursor-pointer ml-1">
+            © 2012-2024 SunC Battery Solutions. All rights reserved. |
+            <span className="hover:text-primary cursor-pointer ml-1 transition-colors">
               Privacy Policy
             </span>{" "}
             |
-            <span className="hover:text-primary cursor-pointer ml-1">
+            <span className="hover:text-primary cursor-pointer ml-1 transition-colors">
               Terms of Service
             </span>
           </div>
 
-          {/* Social Links */}
+          {/* Social Links - Highlighted Icons */}
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground">Follow us:</span>
             <div className="flex items-center gap-2">
@@ -295,10 +356,10 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
                   key={social.name}
                   variant="ghost"
                   size="icon"
-                  className="h-8 w-8 hover:text-primary"
+                  className={`h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} animate-pulse`}
                   aria-label={social.name}
                 >
-                  <social.icon className="h-4 w-4" />
+                  <social.icon className="h-5 w-5" />
                 </Button>
               ))}
             </div>
@@ -306,8 +367,8 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
 
           {/* Certifications */}
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <Shield className="h-4 w-4" />
-            <span>ISO Certified | Make in India</span>
+            <Shield className="h-4 w-4 animate-pulse" />
+            <span>ISO Certified | Make in India | Est. 2012</span>
           </div>
         </div>
       </div>

@@ -79,11 +79,11 @@ export function WhyChooseSunC() {
             Why Choose SunC
           </Badge>
           <h2 className="text-3xl lg:text-4xl">
-            Leading India&#39;s Battery Regeneration Revolution
+            Leading India&apos;s Battery Regeneration Revolution
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             With cutting-edge technology, extensive experience, and commitment
-            to sustainability, weW&#39;re transforming how India approaches
+            to sustainability, we&apos;re transforming how India approaches
             battery management.
           </p>
         </div>

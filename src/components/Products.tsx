@@ -478,9 +478,7 @@ export function Products() {
             <Card
               key={product.id}
               className={`relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${
-                index === 1
-                  ? "ring-2 ring-primary ring-opacity-50 ring-green-700"
-                  : ""
+                index === 1 ? "ring-2 ring-primary ring-opacity-50" : ""
               }`}
             >
               {index === 1 && (
@@ -492,8 +490,12 @@ export function Products() {
               )}
 
               <CardHeader className="text-center pb-4">
-                <div className="inline-flex p-4 rounded-2xl bg-primary/10 mx-auto mb-4">
-                  <Battery className="h-12 w-12 text-primary" />
+                <div className="inline-flex  justify-content-start p-4 rounded-2xl  mx-auto mb-4 mt-2">
+                  <ImageWithFallback
+                    src={currentImage.url}
+                    alt={currentImage.alt}
+                    className=" w-80 rounded-2xl  h-48  object-cover"
+                  />
                 </div>
                 <CardTitle className="text-2xl text-primary">
                   {product.name}

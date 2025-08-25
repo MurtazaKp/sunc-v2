@@ -1,6 +1,26 @@
-import { Button } from './ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Battery, Cog, Monitor, ArrowRight, Zap, Shield, TrendingUp } from 'lucide-react';
+import { Button } from "./ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Badge } from "./ui/badge";
+import {
+  Hospital,
+  GraduationCap,
+  Building,
+  Sun,
+  Radio,
+  Truck,
+  Banknote,
+  ArrowRight,
+  CheckCircle,
+  Zap,
+  Phone,
+  Battery,
+} from "lucide-react";
 
 interface ServicesOverviewProps {
   onLearnMore: () => void;
@@ -9,130 +29,262 @@ interface ServicesOverviewProps {
 export function ServicesOverview({ onLearnMore }: ServicesOverviewProps) {
   const services = [
     {
-      icon: Battery,
-      title: "Battery Regeneration Service",
-      description: "Revitalize your lead-acid batteries with our high-voltage regeneration technology. Extend battery life by 2-3 times while saving up to 70% compared to buying new.",
-      features: ["2-3x Extended Life", "Cost-Effective", "Quick Turnaround", "Professional Assessment"],
-      color: "bg-blue-50 text-blue-600 border-blue-200"
+      icon: Hospital,
+      title: "Healthcare",
+      description:
+        "Critical power backup for hospitals, clinics, and medical equipment ensuring patient safety and operational continuity.",
+      benefits: ["100% Uptime", "Patient Safety", "Cost Effective"],
+      stats: "500+ Hospitals Served",
+      color: "bg-red-50 text-red-600 border-red-200 hover:bg-red-100",
+      isAnimated: true,
     },
     {
-      icon: Cog,
-      title: "Regenerator Manufacturing",
-      description: "Advanced high-voltage battery regenerators for businesses. International quality equipment designed for efficiency, durability, and ease of use.",
-      features: ["International Quality", "High Efficiency", "Easy Operation", "Durable Design"],
-      color: "bg-green-50 text-green-600 border-green-200"
+      icon: GraduationCap,
+      title: "Education",
+      description:
+        "Reliable power systems for schools, colleges, and universities supporting uninterrupted learning environments.",
+      benefits: ["Learning Continuity", "Lab Protection", "Budget Friendly"],
+      stats: "150+ Educational Institutions",
+      color:
+        "bg-indigo-50 text-indigo-600 border-indigo-200 hover:bg-indigo-100",
+      isAnimated: true,
     },
     {
-      icon: Monitor,
-      title: "Battery Monitoring System",
-      description: "Automated real-time monitoring for seamless power management. Get alerts, performance insights, and proactive maintenance recommendations.",
-      features: ["Real-time Monitoring", "Performance Alerts", "Predictive Maintenance", "Remote Access"],
-      color: "bg-purple-50 text-purple-600 border-purple-200"
-    }
+      icon: Building,
+      title: "Industries",
+      description:
+        "Heavy-duty battery solutions for manufacturing, production facilities, and industrial equipment operations.",
+      benefits: ["Zero Downtime", "Production Safety", "Cost Control"],
+      stats: "300+ Industrial Facilities",
+      color:
+        "bg-purple-50 text-purple-600 border-purple-200 hover:bg-purple-100",
+      isAnimated: true,
+    },
+    {
+      icon: Sun,
+      title: "Solar",
+      description:
+        "Optimized energy storage solutions for solar power systems, maximizing renewable energy efficiency and storage capacity.",
+      benefits: ["Enhanced Storage", "Better ROI", "Eco-Friendly"],
+      stats: "1K+ Solar Systems",
+      color:
+        "bg-yellow-50 text-yellow-600 border-yellow-200 hover:bg-yellow-100",
+      isAnimated: true,
+    },
+    {
+      icon: Radio,
+      title: "Telecommunication",
+      description:
+        "Reliable backup power for telecom towers, data centers, and communication infrastructure ensuring network uptime.",
+      benefits: ["Network Reliability", "Signal Quality", "Remote Support"],
+      stats: "200+ Telecom Sites",
+      color: "bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100",
+      isAnimated: true,
+    },
+    {
+      icon: Truck,
+      title: "Transport (E-Rickshaw)",
+      description:
+        "Extended battery life and improved performance for e-rickshaws, commercial vehicles, and transportation fleets.",
+      benefits: ["Extended Range", "Higher Earnings", "Better Performance"],
+      stats: "10K+ Vehicles",
+      color: "bg-green-50 text-green-600 border-green-200 hover:bg-green-100",
+      isAnimated: true,
+    },
+    {
+      icon: Banknote,
+      title: "Banking",
+      description:
+        "Critical power backup for banks, ATMs, and financial institutions ensuring secure and continuous banking operations.",
+      benefits: ["Security Assured", "24/7 Operations", "Compliance Ready"],
+      stats: "250+ Banking Centers",
+      color:
+        "bg-emerald-50 text-emerald-600 border-emerald-200 hover:bg-emerald-100",
+      isAnimated: true,
+    },
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-muted/30">
+    <section className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center space-y-4 mb-12">
           <div className="flex items-center justify-center gap-2 text-primary">
-            <Zap className="h-5 w-5" />
-            <span className="text-sm">What We Do</span>
+            <Zap className="h-5 w-5 animate-pulse" />
+            <span className="text-sm">Our Services</span>
           </div>
-          <h2 className="text-3xl lg:text-4xl">
-            Comprehensive Battery Solutions for Every Need
+          <h2 className="text-3xl lg:text-4xl bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
+            Comprehensive Battery Solutions
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From individual battery regeneration to enterprise monitoring systems, 
-            we provide end-to-end solutions for sustainable energy management.
+            From healthcare to banking, we provide specialized battery
+            regeneration services across diverse industries with proven results
+            and reliable support.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
           {services.map((service, index) => (
-            <Card key={index} className="relative overflow-hidden group hover:shadow-lg transition-all duration-300">
+            <Card
+              key={index}
+              className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 ${service.color} cursor-pointer`}
+            >
               <CardHeader className="pb-4">
-                <div className={`inline-flex p-3 rounded-lg ${service.color} mb-4`}>
-                  <service.icon className="h-6 w-6" />
+                <div className="flex items-center justify-between mb-4">
+                  <div
+                    className={`inline-flex p-3 rounded-lg bg-white/80 shadow-sm ${
+                      service.isAnimated ? "animate-pulse" : ""
+                    }`}
+                  >
+                    <service.icon className="h-6 w-6" />
+                  </div>
+                  <Badge variant="secondary" className="text-xs animate-bounce">
+                    {service.stats}
+                  </Badge>
                 </div>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">
+
+                <CardTitle className="text-lg group-hover:scale-105 transition-transform duration-300">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-base leading-relaxed">
+
+                <CardDescription className="text-sm leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
                   {service.description}
                 </CardDescription>
               </CardHeader>
-              
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-2 text-sm">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-                      <span>{feature}</span>
+
+              <CardContent className="pt-0 space-y-4">
+                <div className="space-y-2">
+                  {service.benefits.map((benefit, benefitIndex) => (
+                    <div
+                      key={benefitIndex}
+                      className="flex items-center gap-2 text-sm"
+                    >
+                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 animate-pulse" />
+                      <span className="group-hover:font-medium transition-all">
+                        {benefit}
+                      </span>
                     </div>
                   ))}
                 </div>
-                
-                <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full group-hover:bg-white group-hover:text-current group-hover:border-current transition-all duration-300 group-hover:shadow-lg"
+                >
                   Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Process Overview */}
-        <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
+        {/* Process Box with Graphical Images */}
+        <Card className="bg-gradient-to-r from-primary/5 to-green-500/5 border-primary/20 mb-12">
           <CardContent className="p-8">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div className="space-y-4">
-                <h3 className="text-2xl text-primary">
-                  Simple Process, Remarkable Results
-                </h3>
-                <p className="text-muted-foreground">
-                  Our proven 3-step regeneration process has successfully restored over 15,000 batteries 
-                  across 75+ service centers throughout India. Experience the difference of professional 
-                  battery regeneration.
+            <div className="text-center space-y-6 mb-8">
+              <h3 className="text-2xl lg:text-3xl">
+                Our Battery Regeneration Process
+              </h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Advanced 4-step process that restores your batteries to optimal
+                performance
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-4 gap-8">
+              <div className="text-center space-y-4">
+                <div className="relative mx-auto w-20 h-20 bg-red-100 rounded-full flex items-center justify-center">
+                  <Battery className="h-10 w-10 text-red-600" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs">1</span>
+                  </div>
+                </div>
+                <h4 className="text-lg">Analysis</h4>
+                <p className="text-sm text-muted-foreground">
+                  Comprehensive battery condition assessment using advanced
+                  diagnostics
                 </p>
-                <div className="flex items-center gap-6">
-                  <div className="flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-green-500" />
-                    <span className="text-sm">Safe & Reliable</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5 text-blue-500" />
-                    <span className="text-sm">Proven Results</span>
-                  </div>
-                </div>
               </div>
-              
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center p-4 rounded-lg bg-background border">
-                  <div className="text-2xl text-primary mb-2">1</div>
-                  <div className="text-sm">Battery Assessment</div>
+
+              <div className="text-center space-y-4">
+                <div className="relative mx-auto w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Zap className="h-10 w-10 text-blue-600 animate-pulse" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs">2</span>
+                  </div>
                 </div>
-                <div className="text-center p-4 rounded-lg bg-background border">
-                  <div className="text-2xl text-primary mb-2">2</div>
-                  <div className="text-sm">Regeneration Process</div>
+                <h4 className="text-lg">Regeneration</h4>
+                <p className="text-sm text-muted-foreground">
+                  Advanced pulse technology removes sulfation and restores
+                  capacity
+                </p>
+              </div>
+
+              <div className="text-center space-y-4">
+                <div className="relative mx-auto w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center">
+                  <CheckCircle className="h-10 w-10 text-yellow-600" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs">3</span>
+                  </div>
                 </div>
-                <div className="text-center p-4 rounded-lg bg-background border">
-                  <div className="text-2xl text-primary mb-2">3</div>
-                  <div className="text-sm">Quality Testing</div>
+                <h4 className="text-lg">Testing</h4>
+                <p className="text-sm text-muted-foreground">
+                  Rigorous quality testing ensures optimal performance and
+                  reliability
+                </p>
+              </div>
+
+              <div className="text-center space-y-4">
+                <div className="relative mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
+                  <CheckCircle className="h-10 w-10 text-green-600 animate-bounce" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs">4</span>
+                  </div>
                 </div>
+                <h4 className="text-lg">Delivery</h4>
+                <p className="text-sm text-muted-foreground">
+                  Your regenerated battery with warranty and ongoing support
+                </p>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <Button size="lg" onClick={onLearnMore} className="group">
-            Explore All Services
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
+        {/* CTA Section */}
+        <div className="text-center space-y-6">
+          <Card className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground  border-0 inline-block">
+            <CardContent className="p-6">
+              <h3 className="text-xl mb-2">
+                Ready to Transform Your Battery Operations?
+              </h3>
+              <p className="text-blue-100 mb-4">
+                Get started with our expert consultation and customized
+                solutions
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  onClick={onLearnMore}
+                  className=""
+                >
+                  Explore All Services
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call Now (Support)
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

@@ -21,6 +21,7 @@ import {
   CheckCircle,
   ArrowRight,
   Lightbulb,
+  Settings,
   Factory,
   Star,
   Globe,
@@ -152,7 +153,7 @@ export function BecomePartner() {
           </h2>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Welcome to the SunC Battery Solutions Partner Program. As a trusted
-            leader in India&#39;s green technology sector, we offer innovative
+            leader in India&apos;s green technology sector, we offer innovative
             and eco-friendly battery regenerator products that optimize energy
             usage, deliver significant cost savings, and reduce environmental
             impact. Join us as an authorized partner and unlock a powerful
@@ -305,7 +306,7 @@ export function BecomePartner() {
                   efficiently.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  By incorporating SunC&#39;s regenerators into their
+                  By incorporating SunC&apos;s regenerators into their
                   maintenance routines, your clients can achieve significant
                   cost savings, reduce their environmental footprint, and ensure
                   a consistent, reliable power supply.
@@ -339,7 +340,7 @@ export function BecomePartner() {
                       ))}
                     </div>
                     <blockquote className="text-lg italic text-muted-foreground leading-relaxed">
-                      &quot;{testimonial.quote}&quot;
+                      {testimonial.quote}
                     </blockquote>
                   </div>
                   <div className="flex items-center gap-3">
@@ -398,7 +399,7 @@ export function BecomePartner() {
           <CardContent className="p-12 text-center space-y-8">
             <div className="space-y-4">
               <h2 className="text-3xl lg:text-4xl">
-                Let&#39;s Connect and Regenerate the Future
+                Let&apos;s Connect and Regenerate the Future
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Ready to join a green tech revolution and build a profitable

@@ -81,19 +81,19 @@ export function AboutUs() {
 
   const leadership = [
     {
-      name: "Jagdish Jadhav",
+      name: "Rajesh Kumar",
       role: "Founder & CEO",
       description:
         "Visionary leader with 15+ years in renewable energy and battery technology innovation.",
     },
     {
-      name: "Amol Jadhav",
-      role: "Chief Technology Officer & CRM Manager",
+      name: "Priya Sharma",
+      role: "Chief Technology Officer",
       description:
         "Expert in battery regeneration technology with multiple patents in sustainable energy solutions.",
     },
     {
-      name: "Sharad Dongre",
+      name: "Amit Patel",
       role: "Head of Operations",
       description:
         "Operations specialist ensuring quality and efficiency across all 75+ service centers.",
@@ -109,10 +109,10 @@ export function AboutUs() {
             About SunC
           </Badge>
           <h1 className="text-4xl lg:text-5xl">
-            Pioneering Indias Battery Revolution
+            Pioneering India&apos;s Battery Revolution
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Since 2014, weve been at the forefront of sustainable battery
+            Since 2014, we&apos;ve been at the forefront of sustainable battery
             solutions, transforming how India approaches energy storage and
             battery lifecycle management.
           </p>
@@ -131,10 +131,10 @@ export function AboutUs() {
             </CardHeader>
             <CardContent>
               <p className="text-lg leading-relaxed">
-                To revolutionize Indias battery industry through innovative
-                regeneration technology, making sustainable energy solutions
-                accessible, affordable, and environmentally responsible for
-                businesses and communities across the nation.
+                To revolutionize India&apos;s battery industry through
+                innovative regeneration technology, making sustainable energy
+                solutions accessible, affordable, and environmentally
+                responsible for businesses and communities across the nation.
               </p>
             </CardContent>
           </Card>
@@ -150,9 +150,9 @@ export function AboutUs() {
             </CardHeader>
             <CardContent>
               <p className="text-lg leading-relaxed">
-                To become Indias most trusted partner in sustainable battery
-                solutions, leading the transition towards a circular economy
-                where every battery reaches its maximum potential before
+                To become India&apos;s most trusted partner in sustainable
+                battery solutions, leading the transition towards a circular
+                economy where every battery reaches its maximum potential before
                 responsible recycling.
               </p>
             </CardContent>

@@ -191,8 +191,8 @@ export function Contact() {
                     Request a Quote
                   </CardTitle>
                   <CardDescription>
-                    Fill out the form below and well get back to you within 24
-                    hours
+                    Fill out the form below and we&apos;ll get back to you
+                    within 24 hours
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -359,17 +359,12 @@ export function Contact() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <Select
-                    value={selectedCity || "all"}
-                    onValueChange={(value) =>
-                      setSelectedCity(value === "all" ? "" : value)
-                    }
-                  >
+                  <Select value={selectedCity} onValueChange={setSelectedCity}>
                     <SelectTrigger className="w-48">
                       <SelectValue placeholder="Select city" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">All Cities</SelectItem>
+                      <SelectItem value="">All Cities</SelectItem>
                       {cities.map((city) => (
                         <SelectItem key={city} value={city}>
                           {city}

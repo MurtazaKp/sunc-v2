@@ -12,7 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import {
   Hospital,
   Car,
-  Radio,
+  GraduationCap,
   Sun,
   Building,
   Truck,
@@ -52,12 +52,13 @@ export function Applications() {
         "Environmental Compliance",
       ],
       caseStudy: {
-        title: "Metro Hospital Chain",
+        title: "Max Super Speciality Hospital, Delhi",
         challenge:
-          "Frequent UPS battery failures causing critical equipment shutdowns",
-        solution: "Regenerated 200+ UPS batteries across 5 hospital locations",
+          "Hospital's UPS system batteries were failing frequently, causing power disruptions in critical care units",
+        solution:
+          "SunC regenerated 240 UPS batteries using advanced electro-chemical treatment",
         results:
-          "85% reduction in battery-related downtime, ₹15 lakhs annual savings",
+          "99.9% uptime reliability achieved, ₹12 lakhs annual savings, 200% battery life extension",
       },
       stats: {
         clients: "500+ Hospitals",
@@ -91,12 +92,13 @@ export function Applications() {
         "Better Customer Satisfaction",
       ],
       caseStudy: {
-        title: "Delhi E-Rickshaw Association",
+        title: "Green Mobility Fleet, Mumbai",
         challenge:
-          "Members struggling with frequent battery replacements and reduced earnings",
-        solution: "Bulk regeneration program for 1,000+ e-rickshaw batteries",
+          "Fleet of 200 e-rickshaws experiencing 40% reduction in daily range due to degraded batteries",
+        solution:
+          "SunC regenerated 800 lead-acid batteries using RG-4X technology with monthly maintenance program",
         results:
-          "Average 40% increase in daily range, ₹8,000 annual savings per vehicle",
+          "65% range improvement, drivers earning ₹300 extra per day, 2.5x battery life extension",
       },
       stats: {
         clients: "10K+ Vehicles",
@@ -105,42 +107,44 @@ export function Applications() {
         earnings: "+25%",
       },
     },
-    telecom: {
-      icon: Radio,
-      name: "Telecommunications",
-      title: "Reliable Network Infrastructure",
+    education: {
+      icon: GraduationCap,
+      name: "Education Sector",
+      title: "Reliable Campus Power Systems",
       description:
-        "Maintain continuous connectivity with regenerated backup power systems optimized for telecom towers, data centers, and critical communication infrastructure.",
+        "Maintain uninterrupted power for labs, computers, libraries, and campus infrastructure with regenerated backup systems designed for educational institutions.",
       challenges: [
-        "Network downtime affects service quality",
-        "Remote tower locations complicate maintenance",
-        "High operational costs for battery replacement",
-        "Environmental conditions stress batteries",
+        "Frequent power cuts disrupt classes and exams",
+        "Limited budgets for infrastructure maintenance",
+        "Critical lab equipment needs reliable backup",
+        "Student safety during emergencies",
       ],
       solutions: [
-        "Extended battery life reduces site visits",
-        "Improved reliability in harsh conditions",
-        "Cost-effective alternative to new batteries",
-        "Professional assessment and testing",
+        "Extended UPS battery life ensures continuous operation",
+        "Cost-effective solution fits educational budgets",
+        "Reliable backup for labs and computer centers",
+        "Emergency lighting systems always operational",
       ],
       benefits: [
-        "Network Uptime Maximized",
-        "Reduced Maintenance Visits",
-        "Lower Operational Costs",
-        "Improved Signal Quality",
+        "Learning Continuity",
+        "Budget Optimization",
+        "Equipment Protection",
+        "Student Safety",
       ],
       caseStudy: {
-        title: "Regional Telecom Provider",
-        challenge: "High battery failure rate at remote tower locations",
-        solution: "Regenerated backup batteries for 150 telecom towers",
+        title: "Delhi University, North Campus",
+        challenge:
+          "Campus backup power system serving 15,000 students failing regularly with ₹8 lakh annual battery budget",
+        solution:
+          "SunC regenerated 180 UPS batteries across campus buildings with monitoring system",
         results:
-          "78% reduction in site visits, ₹25 lakhs annual operational savings",
+          "98% uptime achieved, 60% budget savings, 2.8x battery life extension, 15,000+ students benefited",
       },
       stats: {
-        clients: "200+ Sites",
-        savings: "55-65%",
-        uptime: "99.5%",
-        visits: "-75%",
+        clients: "150+ Institutions",
+        savings: "50-65%",
+        uptime: "98%",
+        students: "200K+",
       },
     },
     solar: {
@@ -168,11 +172,13 @@ export function Applications() {
         "Environmental Sustainability",
       ],
       caseStudy: {
-        title: "Commercial Solar Farm",
-        challenge: "Declining storage capacity in 500 kWh battery bank",
-        solution: "Systematic regeneration of entire battery bank",
+        title: "SunTech Solar Farm, Jodhpur",
+        challenge:
+          "50MW solar installation's battery storage system showing 60% capacity degradation, requiring ₹2.5 crore replacement",
+        solution:
+          "SunC regenerated 1,200 deep-cycle batteries using proprietary pulse technology",
         results:
-          "92% capacity restoration, 3-year life extension, ₹45 lakhs savings",
+          "90% capacity restoration, ₹1 crore saved, 35% energy efficiency improvement, 8-month payback",
       },
       stats: {
         clients: "1K+ Systems",
@@ -206,11 +212,13 @@ export function Applications() {
         "Planned Maintenance",
       ],
       caseStudy: {
-        title: "Textile Manufacturing Unit",
-        challenge: "Frequent UPS failures causing production line shutdowns",
-        solution: "Complete UPS battery regeneration and monitoring system",
+        title: "Tata Steel Processing Unit, Jamshedpur",
+        challenge:
+          "Critical forklift fleet experiencing 30% downtime due to battery failures, ₹15 lakhs monthly impact",
+        solution:
+          "Comprehensive battery regeneration program for 150 forklift batteries with on-site equipment",
         results:
-          "Zero unplanned downtime in 12 months, ₹30 lakhs production loss prevention",
+          "95% downtime elimination, ₹12 lakhs monthly savings, 25% productivity increase, 3x battery cycles",
       },
       stats: {
         clients: "300+ Facilities",
@@ -244,11 +252,13 @@ export function Applications() {
         "Simplified Maintenance",
       ],
       caseStudy: {
-        title: "Logistics Company",
-        challenge: "High battery costs across 200-vehicle commercial fleet",
-        solution: "Fleet-wide battery regeneration program with monitoring",
+        title: "Commercial Logistics Fleet",
+        challenge:
+          "High battery costs across 200-vehicle commercial fleet with frequent breakdowns",
+        solution:
+          "Fleet-wide battery regeneration program with monitoring and scheduled maintenance",
         results:
-          "₹12 lakhs annual savings, 35% reduction in battery-related breakdowns",
+          "₹12 lakhs annual savings, 35% reduction in battery-related breakdowns, 40% reliability improvement",
       },
       stats: {
         clients: "2K+ Vehicles",
@@ -437,7 +447,7 @@ export function Applications() {
                       <Phone className="mr-2 h-4 w-4" />
                       Get Industry-Specific Quote
                     </Button>
-                    <Button variant="outline" size="lg">
+                    <Button className="" variant="outline" size="lg">
                       View More Case Studies
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>

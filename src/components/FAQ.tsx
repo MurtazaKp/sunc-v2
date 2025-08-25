@@ -1,203 +1,295 @@
-import { Badge } from './ui/badge';
-import { Button } from './ui/button';
-import { Card, CardContent } from './ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
-import { HelpCircle, Phone, MessageCircle, Mail, ArrowRight } from 'lucide-react';
+import { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
+import {
+  MessageCircle,
+  Phone,
+  Mail,
+  HelpCircle,
+  CheckCircle,
+  Zap,
+  Battery,
+  Clock,
+  Shield,
+  Award,
+  ArrowRight,
+} from "lucide-react";
 
 export function FAQ() {
-  const faqCategories = [
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const faqs = [
     {
-      category: "Battery Regeneration Basics",
-      questions: [
-        {
-          question: "What is battery regeneration and how does it work?",
-          answer: "Battery regeneration is a process that uses high-voltage technology to break down sulfate crystals that build up on lead-acid battery plates over time. These crystals reduce battery capacity and performance. Our regeneration process applies controlled high-voltage pulses to dissolve these crystals, restoring the battery's ability to hold and deliver charge effectively."
-        },
-        {
-          question: "Is battery regeneration safe for my batteries?",
-          answer: "Yes, battery regeneration is completely safe when performed by trained professionals using proper equipment. Our high-voltage regenerators are designed specifically for this purpose and include multiple safety features. The process actually extends battery life rather than damaging it, making it a safe and beneficial treatment."
-        },
-        {
-          question: "What types of batteries can be regenerated?",
-          answer: "We specialize in lead-acid battery regeneration, including sealed maintenance-free (SMF) batteries, gel batteries, and flooded lead-acid batteries. These are commonly used in UPS systems, solar installations, e-rickshaws, automotive applications, and backup power systems. We cannot regenerate lithium-ion or other battery chemistries."
-        },
-        {
-          question: "How long does the regeneration process take?",
-          answer: "The typical regeneration process takes 24-48 hours, depending on the battery's condition and capacity. This includes initial assessment, the actual regeneration treatment, and final testing. We provide estimated completion times when you drop off your batteries and keep you updated throughout the process."
-        }
-      ]
+      id: "faq-1",
+      category: "General",
+      question: "What is battery regeneration and how does it work?",
+      answer:
+        "Battery regeneration is an advanced process that restores lead-acid batteries to near-original capacity by removing sulfation buildup on battery plates. Our proprietary technology uses controlled electronic pulses to break down hardened sulfate crystals, allowing the battery to hold and deliver charge effectively again. This process can extend battery life by 2-3 times compared to degraded batteries.",
+      icon: Battery,
     },
     {
-      category: "Performance & Results",
-      questions: [
-        {
-          question: "How much will regeneration improve my battery's performance?",
-          answer: "Most batteries show significant improvement after regeneration. Typically, we can restore 85-95% of the original capacity in batteries that have degraded to 30-60% capacity. The exact improvement depends on the battery's age, condition, and how well it has been maintained. We provide performance testing before and after regeneration."
-        },
-        {
-          question: "How many times can a battery be regenerated?",
-          answer: "Most lead-acid batteries can be successfully regenerated 2-4 times throughout their lifecycle, depending on usage patterns and maintenance. Each regeneration can extend battery life by 1-3 years. We assess each battery individually and advise whether regeneration is beneficial or if replacement is more economical."
-        },
-        {
-          question: "What is the success rate of battery regeneration?",
-          answer: "Our success rate is approximately 85-90% for batteries that meet our regeneration criteria. We perform initial testing to determine if a battery is a good candidate for regeneration. Factors affecting success include battery age, physical condition, and degree of sulfation. We only proceed with regeneration when we're confident of positive results."
-        },
-        {
-          question: "How long will my regenerated battery last?",
-          answer: "Regenerated batteries typically last 2-3 times longer than they would without treatment. A battery that might have lasted only 6 more months could operate effectively for 1.5-2 years after regeneration. Actual lifespan depends on usage patterns, maintenance, and operating conditions."
-        }
-      ]
+      id: "faq-2",
+      category: "Process",
+      question: "How long does the battery regeneration process take?",
+      answer:
+        "The regeneration process typically takes 24-48 hours depending on the battery condition, size, and type. Our advanced RG-4X, RG-8X, and RG-16X machines can handle multiple batteries simultaneously. We also offer express services for critical applications where faster turnaround is needed.",
+      icon: Clock,
     },
     {
-      category: "Cost & Savings",
-      questions: [
-        {
-          question: "How much does battery regeneration cost?",
-          answer: "Regeneration costs start from ₹500 per battery, varying based on battery capacity and condition. This typically represents 20-30% of the cost of a new battery. We provide detailed quotes after initial assessment, and the cost includes testing, regeneration, and performance verification."
-        },
-        {
-          question: "How much money can I save compared to buying new batteries?",
-          answer: "Customers typically save 60-70% compared to purchasing new batteries. For example, if a new UPS battery costs ₹8,000, regeneration might cost ₹2,000-2,500 while providing 2-3 years of additional life. Over time, the savings can be substantial, especially for businesses with multiple batteries."
-        },
-        {
-          question: "Do you offer any warranty on regenerated batteries?",
-          answer: "Yes, we provide a performance warranty on regenerated batteries. The warranty period varies based on battery type and application, typically ranging from 6-12 months. Our warranty covers performance degradation beyond normal usage patterns, giving you confidence in the regeneration results."
-        },
-        {
-          question: "Is there a minimum number of batteries required for service?",
-          answer: "No, we accept single batteries as well as bulk orders. However, we offer volume discounts for businesses regenerating multiple batteries. Fleet operators, hospitals, and other organizations with many batteries can benefit from our bulk pricing programs."
-        }
-      ]
+      id: "faq-3",
+      category: "Cost",
+      question:
+        "How much can I save with battery regeneration compared to buying new batteries?",
+      answer:
+        "Battery regeneration typically costs 60-70% less than purchasing new batteries. For example, if a new battery costs ₹10,000, regeneration would cost approximately ₹3,000-4,000. Additionally, you save on disposal costs and contribute to environmental sustainability.",
+      icon: CheckCircle,
     },
     {
-      category: "Service Process",
-      questions: [
-        {
-          question: "How do I get my batteries regenerated?",
-          answer: "Simply bring your batteries to any of our 75+ service centers across India, or contact us for pickup service in many areas. We'll perform initial testing, provide a quote, and proceed with regeneration upon approval. You can also call us for consultation before bringing your batteries."
-        },
-        {
-          question: "Do you provide pickup and delivery service?",
-          answer: "Yes, we offer pickup and delivery services in most major cities for multiple batteries or bulk orders. Individual battery pickup may be available depending on location. Contact your nearest service center to check availability and pricing for pickup/delivery services."
-        },
-        {
-          question: "Can I regenerate batteries that are completely dead?",
-          answer: "Not all completely dead batteries can be regenerated successfully. We perform comprehensive testing to determine if regeneration is feasible. Batteries that have been dead for extended periods or have physical damage may not be good candidates. Our assessment will determine the best course of action."
-        },
-        {
-          question: "Where can I find your service centers?",
-          answer: "We have 75+ service centers across India in major cities and towns. You can find the nearest center using our website's location finder, or call our helpline for assistance. We're continuously expanding our network to serve more areas."
-        }
-      ]
-    }
+      id: "faq-4",
+      category: "Process",
+      question:
+        "What's the difference between Battery Charging & Battery Regeneration?",
+      answer:
+        "Charging simply refurbished the energy in a battery - like filling a water bottle. Regeneration actually restores the battery's ability to hold charge by removing sulfation and reversing capacity degradation - like cleaning and repairing the bottle itself. Regeneration addresses the root cause of battery failure, not just the symptoms.",
+      icon: Zap,
+    },
+    {
+      id: "faq-5",
+      category: "Compatibility",
+      question: "What types of batteries can be regenerated?",
+      answer:
+        "Our regeneration process works on all types of lead-acid batteries including Dry, Flooded, SMF (Sealed Maintenance Free), Quanta, Traction, VRLA (Valve Regulated Lead Acid), and Ni-Cad batteries. We handle battery capacities ranging from 36Ah to 400-1000Ah across automotive, industrial, and renewable energy applications.",
+      icon: Shield,
+    },
+    {
+      id: "faq-6",
+      category: "Benefits",
+      question: "After purchasing the machine, what benefits will we receive?",
+      answer:
+        "When you purchase a SunC Battery Regeneration Machine, you receive: comprehensive training for your technicians, 2-year warranty with free service support, technical documentation and manuals, ongoing phone and email support, software updates, spare parts availability, and business development guidance to maximize your ROI.",
+      icon: Award,
+    },
+    {
+      id: "faq-7",
+      category: "Warranty",
+      question: "Do you provide warranty on regenerated batteries?",
+      answer:
+        "Yes, we provide a comprehensive warranty on all regenerated batteries. The warranty period depends on battery type and application, typically ranging from 6 months to 2 years. Our warranty covers performance issues and capacity degradation, giving you complete peace of mind.",
+      icon: Shield,
+    },
+    {
+      id: "faq-8",
+      category: "Business",
+      question:
+        "Can battery regeneration be done multiple times on the same battery?",
+      answer:
+        "Yes, depending on the battery's initial condition and usage patterns, a battery can typically be regenerated 1-3 times throughout its extended lifecycle. Each regeneration cycle can restore 70-90% of original capacity, significantly extending the total operational life and maximizing your investment.",
+      icon: Zap,
+    },
   ];
+
+  const categories = [
+    "All",
+    ...Array.from(new Set(faqs.map((faq) => faq.category))),
+  ];
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredFAQs = faqs.filter((faq) => {
+    const matchesCategory =
+      activeCategory === "All" || faq.category === activeCategory;
+    const matchesSearch =
+      faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center space-y-4 mb-12">
-          <Badge variant="outline" className="text-primary border-primary">
-            FAQ
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl">
+          <Badge
+            variant="outline"
+            className="text-primary border-primary animate-pulse"
+          >
+            <HelpCircle className="h-4 w-4 mr-2" />
             Frequently Asked Questions
+          </Badge>
+          <h1 className="text-4xl lg:text-5xl bg-gradient-to-r from-primary to-green-600 bg-clip-text text-transparent">
+            Got Questions? We Have Answers
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get answers to common questions about battery regeneration, our services, 
-            and how we can help extend your battery life while saving costs.
+            Everything you need to know about SunC Battery Regeneration
+            technology, our services, and how we can help transform your battery
+            operations.
           </p>
         </div>
 
-        {/* FAQ Categories */}
-        <div className="space-y-12">
-          {faqCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="space-y-6">
-              <div className="flex items-center gap-3">
-                <HelpCircle className="h-5 w-5 text-primary" />
-                <h2 className="text-2xl text-primary">{category.category}</h2>
-              </div>
-              
-              <Accordion type="single" collapsible className="space-y-4">
-                {category.questions.map((faq, faqIndex) => (
-                  <AccordionItem 
-                    key={faqIndex} 
-                    value={`${categoryIndex}-${faqIndex}`}
-                    className="border rounded-lg px-6"
-                  >
-                    <AccordionTrigger className="text-left py-6 hover:no-underline hover:text-primary">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="pb-6 text-muted-foreground leading-relaxed">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+        {/* Search and Filter */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="flex flex-col lg:flex-row gap-4 items-center">
+            <div className="flex-1 relative">
+              <HelpCircle className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground animate-pulse" />
+              <input
+                type="text"
+                placeholder="Search FAQs..."
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
-          ))}
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={activeCategory === category ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setActiveCategory(category)}
+                  className={`hover:scale-105 transition-transform ${
+                    activeCategory === category ? "animate-pulse" : ""
+                  }`}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Still Have Questions Section */}
-        <Card className="mt-16 bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
-          <CardContent className="p-8 text-center space-y-6">
-            <h2 className="text-3xl">Still Have Questions?</h2>
-            <p className="text-lg text-muted-foreground">
-              Our battery experts are here to help you make the right decision for your specific needs.
-            </p>
-            
-            <div className="grid lg:grid-cols-3 gap-6 mt-8">
-              <Card className="p-6 text-center hover:shadow-md transition-shadow">
-                <CardContent className="space-y-4 p-0">
-                  <Phone className="h-8 w-8 text-blue-500 mx-auto" />
-                  <div>
-                    <h3 className="text-lg mb-2">Call Us</h3>
-                    <p className="text-sm text-muted-foreground mb-4">Speak directly with our technical experts</p>
-                    <Button size="sm">
-                      +91-XXX-XXX-XXXX
+        {/* FAQ Accordion */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <Accordion type="single" collapsible className="space-y-4">
+            {filteredFAQs.map((faq) => (
+              <AccordionItem key={faq.id} value={faq.id}>
+                <Card className="hover:shadow-lg transition-all duration-300 hover:border-primary/50">
+                  <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                    <div className="flex items-center gap-4 text-left">
+                      <div className="p-2 rounded-lg bg-primary/10 shrink-0">
+                        <faq.icon className="h-5 w-5 text-primary animate-pulse" />
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-base font-medium">
+                          {faq.question}
+                        </div>
+                        <Badge variant="secondary" className="text-xs">
+                          {faq.category}
+                        </Badge>
+                      </div>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <div className="pl-14">
+                      <p className="text-muted-foreground leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </AccordionContent>
+                </Card>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          {filteredFAQs.length === 0 && (
+            <Card className="text-center p-12">
+              <CardContent className="space-y-4">
+                <HelpCircle className="h-12 w-12 text-muted-foreground mx-auto animate-pulse" />
+                <h3 className="text-xl">No FAQs found</h3>
+                <p className="text-muted-foreground">
+                  Try adjusting your search or category filter, or contact us
+                  directly for assistance.
+                </p>
+              </CardContent>
+            </Card>
+          )}
+        </div>
+
+        {/* Contact Support */}
+        <div className="max-w-4xl mx-auto">
+          <Card className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground border-0">
+            <CardContent className="p-8 text-center space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-2xl">Still Have Questions?</h3>
+                <p className="text-blue-100">
+                  Our expert support team is here to help you with any specific
+                  queries about battery regeneration or our services.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+                  <CardContent className="p-4 text-center">
+                    <Phone className="h-8 w-8 mx-auto mb-3 animate-pulse" />
+                    <h4 className="text-lg mb-2">Call Support</h4>
+                    <p className="text-blue-100 text-sm mb-3">
+                      Get instant help from our experts
+                    </p>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="bg-white text-blue-600 hover:bg-blue-50"
+                    >
+                      Call Now (Support)
                     </Button>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="p-6 text-center hover:shadow-md transition-shadow">
-                <CardContent className="space-y-4 p-0">
-                  <MessageCircle className="h-8 w-8 text-green-500 mx-auto" />
-                  <div>
-                    <h3 className="text-lg mb-2">WhatsApp</h3>
-                    <p className="text-sm text-muted-foreground mb-4">Quick answers to your questions</p>
-                    <Button size="sm" variant="outline">
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+                  <CardContent className="p-4 text-center">
+                    <MessageCircle className="h-8 w-8 mx-auto mb-3 animate-pulse" />
+                    <h4 className="text-lg mb-2">WhatsApp Chat</h4>
+                    <p className="text-blue-100 text-sm mb-3">
+                      Quick responses via WhatsApp
+                    </p>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="bg-white text-blue-600 hover:bg-blue-50"
+                    >
                       Chat Now
                     </Button>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="p-6 text-center hover:shadow-md transition-shadow">
-                <CardContent className="space-y-4 p-0">
-                  <Mail className="h-8 w-8 text-purple-500 mx-auto" />
-                  <div>
-                    <h3 className="text-lg mb-2">Email Support</h3>
-                    <p className="text-sm text-muted-foreground mb-4">Detailed responses within 24 hours</p>
-                    <Button size="sm" variant="outline">
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
+                  <CardContent className="p-4 text-center">
+                    <Mail className="h-8 w-8 mx-auto mb-3 animate-pulse" />
+                    <h4 className="text-lg mb-2">Email Support</h4>
+                    <p className="text-blue-100 text-sm mb-3">
+                      Detailed technical assistance
+                    </p>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="bg-white text-blue-600 hover:bg-blue-50"
+                    >
                       Send Email
                     </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-            
-            <div className="pt-6 border-t">
-              <p className="text-sm text-muted-foreground mb-4">
-                Need technical specifications or detailed consultation?
-              </p>
-              <Button size="lg">
-                Schedule Free Consultation
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="pt-4 border-t border-white/20">
+                <p className="text-blue-100 text-sm">
+                  <strong>24/7 Emergency Support Available</strong> • Response
+                  Time: Within 2 hours • Technical Support in Hindi & English
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );

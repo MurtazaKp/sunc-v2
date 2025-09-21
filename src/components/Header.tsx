@@ -1,42 +1,31 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Menu, Phone } from "lucide-react";
-
-type ActivePage =
-  | "home"
-  | "about"
-  | "services"
-  | "products"
-  | "applications"
-  | "faq"
-  | "contact"
-  | "partner";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface HeaderProps {
-  activePage: ActivePage;
-  onNavigate: (page: ActivePage) => void;
+  // onNavigate: (page: string) => void;
   onGetQuote: () => void;
 }
 
-export function Header({ activePage, onNavigate, onGetQuote }: HeaderProps) {
+export function Header({ onGetQuote }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const navigation = [
-    { name: "Home", key: "home" as const },
-    { name: "About Us", key: "about" as const },
-    { name: "Services", key: "services" as const },
-    { name: "Products", key: "products" as const },
-    { name: "Applications", key: "applications" as const },
-    { name: "Partner", key: "partner" as const },
-    { name: "FAQ", key: "faq" as const },
-    { name: "Contact", key: "contact" as const },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Services", href: "/services" },
+    { name: "Products", href: "/products" },
+    { name: "Applications", href: "/applications" },
+    { name: "Partner", href: "/partner" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Contact", href: "/contact" },
   ];
-
-  const handleNavClick = (page: ActivePage) => {
-    onNavigate(page);
-    setIsOpen(false);
-  };
 
   const handleGetQuoteClick = () => {
     onGetQuote();
@@ -47,12 +36,12 @@ export function Header({ activePage, onNavigate, onGetQuote }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <button
-          onClick={() => handleNavClick("home")}
+        <Link
+          href="/"
           className="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
           <img
-            src={"/SuncLogo.svg"}
+            src="/SuncLogo.svg"
             alt="SunC Battery Solutions Logo"
             className="h-10 w-auto"
           />
@@ -61,23 +50,27 @@ export function Header({ activePage, onNavigate, onGetQuote }: HeaderProps) {
               Battery Solutions
             </span>
           </div>
-        </button>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-6">
-          {navigation.map((item) => (
-            <button
-              key={item.key}
-              onClick={() => handleNavClick(item.key)}
-              className={`text-sm transition-colors hover:text-primary ${
-                activePage === item.key
-                  ? "text-primary border-b-2 border-primary pb-1"
-                  : "text-foreground"
-              }`}
-            >
-              {item.name}
-            </button>
-          ))}
+          {navigation.map((item) => {
+            const isActive =
+              pathname === item.href || pathname.startsWith(item.href + "/");
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`text-sm transition-colors hover:text-primary ${
+                  isActive
+                    ? "text-primary border-b-2 border-primary pb-1"
+                    : "text-foreground"
+                }`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop CTA */}
@@ -87,58 +80,57 @@ export function Header({ activePage, onNavigate, onGetQuote }: HeaderProps) {
             <span>+91-XXX-XXX-XXXX</span>
           </div>
           <Button onClick={handleGetQuoteClick}>Get Quote</Button>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="lg:hidden">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-64">
+              <div className="flex flex-col gap-4 mt-8">
+                <div className="flex items-center gap-3 pb-4 border-b">
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm text-muted-foreground">
+                      Battery Solutions
+                    </span>
+                  </div>
+                </div>
+
+                <nav className="flex flex-col gap-3">
+                  {navigation.map((item) => {
+                    const isActive =
+                      pathname === item.href ||
+                      pathname.startsWith(item.href + "/");
+                    return (
+                      <button
+                        key={item.name}
+                        className={`text-left p-3 rounded-md transition-colors ${
+                          isActive
+                            ? "bg-primary text-primary-foreground"
+                            : "text-foreground hover:bg-accent"
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                    );
+                  })}
+                </nav>
+
+                <div className="mt-6 pt-6 border-t space-y-3">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Phone className="h-4 w-4" />
+                    <span>+91-XXX-XXX-XXXX</span>
+                  </div>
+                  <Button className="w-full" onClick={handleGetQuoteClick}>
+                    Get Quote
+                  </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
 
         {/* Mobile Menu */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="lg:hidden">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-64">
-            <div className="flex flex-col gap-4 mt-8">
-              <div className="flex items-center gap-3 pb-4 border-b">
-                {/* <img 
-                  src={suncLogo} 
-                  alt="SunC Battery Solutions Logo" 
-                  className="h-8 w-auto"
-                /> */}
-                <div className="flex flex-col items-start">
-                  <span className="text-sm text-muted-foreground">
-                    Battery Solutions
-                  </span>
-                </div>
-              </div>
-
-              <nav className="flex flex-col gap-3">
-                {navigation.map((item) => (
-                  <button
-                    key={item.key}
-                    onClick={() => handleNavClick(item.key)}
-                    className={`text-left p-3 rounded-md transition-colors ${
-                      activePage === item.key
-                        ? "bg-primary text-primary-foreground"
-                        : "text-foreground hover:bg-accent"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ))}
-              </nav>
-
-              <div className="mt-6 pt-6 border-t space-y-3">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Phone className="h-4 w-4" />
-                  <span>+91-XXX-XXX-XXXX</span>
-                </div>
-                <Button className="w-full" onClick={handleGetQuoteClick}>
-                  Get Quote
-                </Button>
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
       </div>
     </header>
   );

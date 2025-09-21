@@ -38,47 +38,12 @@ export default function App() {
     setIsQuoteDialogOpen(true);
   };
 
-  const renderPage = () => {
-    switch (activePage) {
-      case "about":
-        return <AboutUs />;
-      case "services":
-        return <Services />;
-      case "products":
-        return <Products />;
-      case "applications":
-        return <Applications />;
-      case "faq":
-        return <FAQ />;
-      case "contact":
-        return <Contact />;
-      case "partner":
-        return <BecomePartner />;
-      default:
-        return (
-          <>
-            <HeroSection onGetQuote={handleGetQuote} />
-            <ServicesOverview
-              onLearnMore={() => handleNavigation("services")}
-            />
-            <WhyChooseSunC />
-            <IndustriesServed
-              onExplore={() => handleNavigation("applications")}
-            />
-          </>
-        );
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      <Header
-        activePage={activePage}
-        onNavigate={handleNavigation}
-        onGetQuote={handleGetQuote}
-      />
-      {renderPage()}
-      <Footer onNavigate={handleNavigation} onGetQuote={handleGetQuote} />
+      <HeroSection onGetQuote={handleGetQuote} />
+      <ServicesOverview onLearnMore={() => handleNavigation("services")} />
+      <WhyChooseSunC />
+      <IndustriesServed onExplore={() => handleNavigation("applications")} />
 
       {/* Global Quote Dialog */}
       <GetQuoteDialog
@@ -86,9 +51,6 @@ export default function App() {
         onOpenChange={setIsQuoteDialogOpen}
         variant="quote"
       />
-
-      {/* Toast Notifications */}
-      <Toaster position="top-right" />
     </div>
   );
 }

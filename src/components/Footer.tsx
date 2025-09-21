@@ -21,6 +21,7 @@ import {
   Clock,
   Globe,
 } from "lucide-react";
+import Link from "next/link";
 
 type ActivePage =
   | "home"
@@ -33,20 +34,19 @@ type ActivePage =
   | "partner";
 
 interface FooterProps {
-  onNavigate: (page: ActivePage) => void;
   onGetQuote: () => void;
 }
 
-export function Footer({ onNavigate, onGetQuote }: FooterProps) {
+export function Footer({ onGetQuote }: FooterProps) {
   const quickLinks = [
-    { name: "Home", key: "home" as const },
-    { name: "About Us", key: "about" as const },
-    { name: "Services", key: "services" as const },
-    { name: "Products", key: "products" as const },
-    { name: "Applications", key: "applications" as const },
-    { name: "Partner", key: "partner" as const },
-    { name: "FAQ", key: "faq" as const },
-    { name: "Contact", key: "contact" as const },
+    { name: "Home", href: "/" as const },
+    { name: "About Us", href: "/about-us" as const },
+    { name: "Services", href: "/services" as const },
+    { name: "Products", href: "/products" as const },
+    { name: "Applications", href: "applications" as const },
+    { name: "Partner", href: "/partner" as const },
+    { name: "FAQ", href: "/faq" as const },
+    { name: "Contact", href: "/contact" as const },
   ];
 
   const services = [
@@ -227,13 +227,13 @@ export function Footer({ onNavigate, onGetQuote }: FooterProps) {
             </h3>
             <nav className="space-y-2">
               {quickLinks.map((link) => (
-                <button
-                  key={link.key}
-                  onClick={() => onNavigate(link.key)}
+                <Link
+                  href={link.href}
+                  key={link.name}
                   className="block text-sm text-muted-foreground hover:text-primary transition-colors hover:translate-x-1 transform duration-200"
                 >
                   {link.name}
-                </button>
+                </Link>
               ))}
             </nav>
           </div>

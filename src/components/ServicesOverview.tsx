@@ -197,7 +197,7 @@ export function ServicesOverview({ onLearnMore }: ServicesOverviewProps) {
             <div className="grid lg:grid-cols-4 gap-8">
               <div className="text-center space-y-4">
                 <div className="relative mx-auto w-20 h-20 bg-red-100 rounded-full flex items-center justify-center">
-                  <Battery className="h-10 w-10 text-red-600" />
+                  <Battery className="h-10 w-10 text-red-600 animate-pulse" />
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs">1</span>
                   </div>
@@ -225,7 +225,7 @@ export function ServicesOverview({ onLearnMore }: ServicesOverviewProps) {
 
               <div className="text-center space-y-4">
                 <div className="relative mx-auto w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center">
-                  <CheckCircle className="h-10 w-10 text-yellow-600" />
+                  <CheckCircle className="h-10 w-10 text-yellow-600 animate-pulse" />
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs">3</span>
                   </div>
@@ -239,7 +239,7 @@ export function ServicesOverview({ onLearnMore }: ServicesOverviewProps) {
 
               <div className="text-center space-y-4">
                 <div className="relative mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
-                  <CheckCircle className="h-10 w-10 text-green-600 animate-bounce" />
+                  <CheckCircle className="h-10 w-10 text-green-600 animate-pulse" />
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs">4</span>
                   </div>

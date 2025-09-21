@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -42,7 +44,7 @@ export function Contact() {
     message: "",
   });
 
-  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedCity, setSelectedCity] = useState("all");
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({
@@ -53,7 +55,6 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
   };
 
@@ -147,9 +148,11 @@ export function Contact() {
   ];
 
   const cities = [...new Set(serviceCenters.map((center) => center.city))];
-  const filteredCenters = selectedCity
-    ? serviceCenters.filter((center) => center.city === selectedCity)
-    : serviceCenters;
+
+  const filteredCenters =
+    selectedCity === "all"
+      ? serviceCenters
+      : serviceCenters.filter((center) => center.city === selectedCity);
 
   return (
     <div className="py-16 lg:py-24 bg-background">
@@ -183,7 +186,6 @@ export function Contact() {
           {/* Contact Form Tab */}
           <TabsContent value="contact" className="space-y-12">
             <div className="grid lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -290,10 +292,8 @@ export function Contact() {
                 </CardContent>
               </Card>
 
-              {/* Contact Information */}
               <div className="space-y-6">
                 <h2 className="text-2xl">Contact Information</h2>
-
                 <div className="grid gap-6">
                   {contactInfo.map((info, index) => (
                     <Card
@@ -326,7 +326,6 @@ export function Contact() {
                   ))}
                 </div>
 
-                {/* Quick Actions */}
                 <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
                   <CardContent className="p-6 space-y-4">
                     <h3 className="text-lg">Need Immediate Assistance?</h3>
@@ -364,7 +363,7 @@ export function Contact() {
                       <SelectValue placeholder="Select city" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All Cities</SelectItem>
+                      <SelectItem value="all">All Cities</SelectItem>
                       {cities.map((city) => (
                         <SelectItem key={city} value={city}>
                           {city}
@@ -380,7 +379,6 @@ export function Contact() {
                 </div>
               </div>
 
-              {/* Service Centers Grid */}
               <div className="grid lg:grid-cols-2 gap-6">
                 {filteredCenters.map((center, index) => (
                   <Card key={index} className="hover:shadow-lg transition-all">
@@ -447,7 +445,6 @@ export function Contact() {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
               <Card className="mt-8">
                 <CardContent className="p-8 text-center">
                   <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />

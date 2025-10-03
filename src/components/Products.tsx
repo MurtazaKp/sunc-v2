@@ -51,143 +51,64 @@ export function Products() {
     "rg-4x": {
       overview: [
         {
-          url: "https://images.unsplash.com/photo-1581092787765-e3c8b36952f8?w=800&h=600&fit=crop",
+          url: "/rg-4x/main-image.jpeg",
           alt: "RG-4X Battery Regenerator - Main Product View",
           caption: "Complete System Overview",
           type: "main",
         },
         {
-          url: "https://images.unsplash.com/photo-1581092784815-d77e93e3c3a8?w=800&h=600&fit=crop",
+          url: "/rg-4x/front-panel.jpeg",
           alt: "RG-4X Battery Regenerator - Front Panel",
           caption: "Control Panel Interface",
           type: "interface",
         },
         {
-          url: "https://images.unsplash.com/photo-1581092918421-bb31b7fdc1f1?w=800&h=600&fit=crop",
+          url: "/rg-4x/side-image.jpeg",
+
           alt: "RG-4X Battery Regenerator - Side View",
           caption: "Compact Side Profile",
           type: "profile",
-        },
-      ],
-      components: [
-        {
-          url: "https://images.unsplash.com/photo-1581092918540-1c61a0e6b6b4?w=800&h=600&fit=crop",
-          alt: "RG-4X Battery Regenerator - Internal Components",
-          caption: "Internal Circuit Board",
-          type: "internal",
-        },
-        {
-          url: "https://images.unsplash.com/photo-1581092918597-4b8c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-4X Battery Regenerator - Connection Ports",
-          caption: "Battery Connection Ports",
-          type: "connections",
-        },
-        {
-          url: "https://images.unsplash.com/photo-1581092918654-8b5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-4X Battery Regenerator - Control Electronics",
-          caption: "Control System Details",
-          type: "electronics",
-        },
-      ],
-      applications: [
-        {
-          url: "https://images.unsplash.com/photo-1581092918711-9b5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-4X Battery Regenerator - Workshop Setup",
-          caption: "Workshop Installation",
-          type: "workshop",
-        },
-        {
-          url: "https://images.unsplash.com/photo-1581092918768-ab5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-4X Battery Regenerator - Service Center",
-          caption: "Service Center Operation",
-          type: "service",
-        },
-        {
-          url: "https://images.unsplash.com/photo-1581092918825-bc5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-4X Battery Regenerator - Battery Shop",
-          caption: "Battery Shop Integration",
-          type: "retail",
         },
       ],
     },
     "rg-8x": {
       overview: [
         {
-          url: "https://images.unsplash.com/photo-1581092918882-cd5c21b6b22f?w=800&h=600&fit=crop",
+          url: "/rg-8x/main-image.jpeg",
           alt: "RG-8X Battery Regenerator - Complete System",
           caption: "8-Battery Capacity System",
           type: "main",
         },
         {
-          url: "https://images.unsplash.com/photo-1581092918939-de5c21b6b22f?w=800&h=600&fit=crop",
+          url: "/rg-8x/front-panel.jpeg",
           alt: "RG-8X Battery Regenerator - Advanced Interface",
           caption: "Enhanced Control Panel",
           type: "interface",
         },
         {
-          url: "https://images.unsplash.com/photo-1581092918996-ef5c21b6b22f?w=800&h=600&fit=crop",
+          url: "/rg-8x/side-image.jpeg",
           alt: "RG-8X Battery Regenerator - Professional Grade",
           caption: "Professional Side View",
           type: "profile",
-        },
-      ],
-      components: [
-        {
-          url: "https://images.unsplash.com/photo-1581092919281-jl5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-8X Battery Regenerator - Internal Layout",
-          caption: "Advanced Internal Design",
-          type: "internal",
-        },
-        {
-          url: "https://images.unsplash.com/photo-1581092919338-km5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-8X Battery Regenerator - Dual Banks",
-          caption: "Dual Connection Banks",
-          type: "connections",
-        },
-        {
-          url: "https://images.unsplash.com/photo-1581092919395-ln5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-8X Battery Regenerator - Processing Units",
-          caption: "Processing Electronics",
-          type: "processing",
-        },
-      ],
-      applications: [
-        {
-          url: "https://images.unsplash.com/photo-1581092919452-mo5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-8X Battery Regenerator - Industrial Setup",
-          caption: "Industrial Facility",
-          type: "industrial",
-        },
-        {
-          url: "https://images.unsplash.com/photo-1581092919509-np5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-8X Battery Regenerator - Fleet Operation",
-          caption: "Fleet Maintenance Center",
-          type: "fleet",
-        },
-        {
-          url: "https://images.unsplash.com/photo-1581092919566-oq5c21b6b22f?w=800&h=600&fit=crop",
-          alt: "RG-8X Battery Regenerator - Commercial Use",
-          caption: "Commercial Operation",
-          type: "commercial",
         },
       ],
     },
     "rg-16x": {
       overview: [
         {
-          url: "https://images.unsplash.com/photo-1581092919623-pr5c21b6b22f?w=800&h=600&fit=crop",
+          url: "/rg-16x/main-image.jpeg",
           alt: "RG-16X Battery Regenerator - Maximum Capacity",
           caption: "16-Battery Industrial System",
           type: "main",
         },
         {
-          url: "https://images.unsplash.com/photo-1581092919680-qs5c21b6b22f?w=800&h=600&fit=crop",
+          url: "/rg-16x/front-panel.jpeg",
           alt: "RG-16X Battery Regenerator - Professional Panel",
           caption: "Professional Control Interface",
           type: "interface",
         },
         {
-          url: "https://images.unsplash.com/photo-1581092919737-rt5c21b6b22f?w=800&h=600&fit=crop",
+          url: "/rg-16x/side-image.jpeg",
           alt: "RG-16X Battery Regenerator - Industrial Design",
           caption: "Heavy-Duty Construction",
           type: "profile",
@@ -240,6 +161,7 @@ export function Products() {
     "rg-4x": {
       id: "rg-4x",
       name: "RG-4X",
+      image: "/rg-4x/rg-4x.jpeg",
       title: "Battery Regenerator - 4 Battery Capacity",
       description:
         "High-quality battery regenerator designed for small to medium operations, processing 4 batteries simultaneously.",
@@ -277,6 +199,7 @@ export function Products() {
       id: "rg-8x",
       name: "RG-8X",
       title: "Battery Regenerator - 8 Battery Capacity",
+      image: "/rg-8x/rg-8x.jpeg",
       description:
         "Mid-range battery regenerator ideal for medium-scale operations, doubling the capacity with 8 battery processing.",
       capacity: "8 Batteries",
@@ -313,6 +236,7 @@ export function Products() {
       id: "rg-16x",
       name: "RG-16X",
       title: "Battery Regenerator - 16 Battery Capacity",
+      image: "/rg-16x/rg-16x.jpeg",
       description:
         "High-capacity battery regenerator for large-scale operations, capable of processing 16 batteries simultaneously for maximum efficiency.",
       capacity: "16 Batteries",
@@ -427,11 +351,6 @@ export function Products() {
     }
   };
 
-  const handleSectorChange = (sectorId: string) => {
-    setSelectedImageSector(sectorId);
-    setSelectedImageIndex(0);
-  };
-
   const getImageTypeIcon = (type: string) => {
     switch (type) {
       case "main":
@@ -491,11 +410,11 @@ export function Products() {
               )}
 
               <CardHeader className="text-center pb-4">
-                <div className="inline-flex  justify-content-start p-4 rounded-2xl  mx-auto mb-4 mt-2">
+                <div className="inline-flex  justify-content-start  rounded-2xl  mx-auto mb-4 mt-2">
                   <ImageWithFallback
-                    src={currentImage.url}
+                    src={product.image}
                     alt={currentImage.alt}
-                    className=" w-80 rounded-2xl  h-48  object-cover"
+                    className="  rounded-2xl  object-contain  "
                   />
                 </div>
                 <CardTitle className="text-2xl text-primary">
@@ -615,12 +534,12 @@ export function Products() {
             <div className="space-y-8">
               {/* Main Image Display */}
               <Card className="overflow-hidden">
-                <CardContent className="p-0">
+                <CardContent className="p-0 [&:last-child]:pb-0">
                   <div className="relative group">
                     <ImageWithFallback
                       src={currentImage.url}
                       alt={currentImage.alt}
-                      className="w-full h-96 lg:h-[600px] object-cover"
+                      className="w-full lg:h-[650px]"
                     />
 
                     {/* Image Overlay Controls */}
@@ -662,12 +581,6 @@ export function Products() {
                     {/* Enhanced Image Caption */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
                       <div className="text-white">
-                        <div className="flex items-center gap-3 mb-2">
-                          {getImageTypeIcon(currentImage.type)}
-                          <span className="text-lg">
-                            {currentImage.caption}
-                          </span>
-                        </div>
                         <div className="flex items-center justify-between">
                           <div className="text-sm opacity-90">
                             {selectedImageIndex + 1} of{" "}
@@ -695,53 +608,6 @@ export function Products() {
                 </CardContent>
               </Card>
 
-              {/* Image Sector Navigation */}
-              <Card>
-                <CardContent className="p-6">
-                  <div className="space-y-6">
-                    <div className="text-center">
-                      <h3 className="text-xl mb-2">Product Image Gallery</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Explore different views of the {currentProduct.name}{" "}
-                        regenerator
-                      </p>
-                    </div>
-
-                    {/* Sector Tabs */}
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-                      {imageSectors.map((sector) => (
-                        <button
-                          key={sector.id}
-                          onClick={() => handleSectorChange(sector.id)}
-                          className={`p-4 rounded-lg border transition-all duration-200 text-left hover:shadow-md ${
-                            selectedImageSector === sector.id
-                              ? "bg-primary text-primary-foreground border-primary shadow-md"
-                              : "bg-background border-border hover:border-primary/50"
-                          }`}
-                        >
-                          <div className="flex items-center gap-3 mb-2">
-                            <sector.icon className="h-5 w-5" />
-                            <span className="font-medium">{sector.name}</span>
-                          </div>
-                          <p className="text-xs opacity-80">
-                            {sector.description}
-                          </p>
-                          <div className="text-xs mt-2 opacity-60">
-                            {
-                              currentImageSectors[
-                                sector.id as keyof typeof currentImageSectors
-                              ].length
-                            }{" "}
-                            images
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Enhanced Thumbnail Grid */}
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -777,7 +643,7 @@ export function Products() {
                             <ImageWithFallback
                               src={image.url}
                               alt={image.alt}
-                              className="w-full h-24 lg:h-32 object-cover rounded"
+                              className="w-full  object-cover rounded"
                             />
                             <div
                               className={`absolute inset-0 rounded transition-colors ${
@@ -818,22 +684,6 @@ export function Products() {
                         </CardContent>
                       </Card>
                     ))}
-                  </div>
-
-                  {/* Image Actions */}
-                  <div className="flex flex-wrap gap-3 mt-6 pt-6 border-t">
-                    <Button variant="outline" size="sm">
-                      <Download className="mr-2 h-3 w-3" />
-                      Download All Images
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      <Play className="mr-2 h-3 w-3" />
-                      Watch Product Demo
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      <ZoomIn className="mr-2 h-3 w-3" />
-                      High Resolution View
-                    </Button>
                   </div>
                 </CardContent>
               </Card>

@@ -41,11 +41,13 @@ import {
   Grid3x3,
   Monitor,
 } from "lucide-react";
+import { GetQuoteDialog } from "./GetQuoteDialog";
 
 export function Products() {
   const [selectedProduct, setSelectedProduct] = useState("rg-4x");
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [selectedImageSector, setSelectedImageSector] = useState("overview");
+  const [isQuoteDialogOpen, setIsQuoteDialogOpen] = useState(false);
 
   const productImageSectors = {
     "rg-4x": {
@@ -172,7 +174,7 @@ export function Products() {
       warranty: "2 Years",
       power: "230V/50Hz (Single Phase)",
       certifications: ["CE", "ISO"],
-      price: "Starting from ₹1,50,000",
+      price: "Starting from ₹3,XX,XXX",
       ideal: "Small Service Centers, Battery Shops, Fleet Operators",
       features: [
         "Compact Design",
@@ -209,7 +211,7 @@ export function Products() {
       warranty: "2 Years",
       power: "230V/50Hz (Single Phase)",
       certifications: ["CE", "ISO"],
-      price: "Starting from ₹2,50,000",
+      price: "Starting from ₹5,XX,XXX",
       ideal: "Medium Service Centers, Industrial Operations, Fleet Managers",
       features: [
         "Higher Capacity",
@@ -246,7 +248,7 @@ export function Products() {
       warranty: "2 Years",
       power: "230V/50Hz (Single Phase)",
       certifications: ["CE", "ISO"],
-      price: "Starting from ₹4,50,000",
+      price: "Starting from ₹6,XX,XXX",
       ideal:
         "Large Service Centers, Industrial Operations, Manufacturing Units",
       features: [
@@ -485,7 +487,13 @@ export function Products() {
                     View Details
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
-                  <Button variant="outline" className="w-full">
+                  <Button
+                    onClick={() => {
+                      setIsQuoteDialogOpen(!isQuoteDialogOpen);
+                    }}
+                    variant="outline"
+                    className="w-full"
+                  >
                     <Phone className="mr-2 h-4 w-4" />
                     Get Quote
                   </Button>
@@ -838,7 +846,12 @@ export function Products() {
                   personalized recommendations for your operation
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg">
+                  <Button
+                    onClick={() => {
+                      setIsQuoteDialogOpen(!isQuoteDialogOpen);
+                    }}
+                    size="lg"
+                  >
                     <Phone className="mr-2 h-4 w-4" />
                     Request Quote
                   </Button>
@@ -928,6 +941,11 @@ export function Products() {
           </Card>
         </div>
       </div>
+      <GetQuoteDialog
+        open={isQuoteDialogOpen}
+        onOpenChange={setIsQuoteDialogOpen}
+        variant="quote"
+      />
     </div>
   );
 }

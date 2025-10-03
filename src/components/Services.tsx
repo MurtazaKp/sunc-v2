@@ -382,10 +382,12 @@ export function Services() {
                     quote
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg">
-                      <Phone className="mr-2 h-4 w-4" />
-                      Get Free Quote
-                    </Button>
+                    <a href="tel:+917276050250" className="text-sm">
+                      <Button size="lg">
+                        <Phone className="mr-2 h-4 w-4" />
+                        Get Free Quote
+                      </Button>
+                    </a>
                     <Button variant="outline" size="lg">
                       <Download className="mr-2 h-4 w-4" />
                       Service Brochure

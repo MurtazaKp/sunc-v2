@@ -13,6 +13,7 @@ import {
   Phone,
   ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
 
 export function AboutUs() {
   const milestones = [
@@ -281,18 +282,22 @@ export function AboutUs() {
               reliable, sustainable, and cost-effective battery solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary">
-                <Phone className="mr-2 h-4 w-4" />
-                Get Free Consultation
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-              >
-                Find Service Center
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <a href="tel:+917276050250" className="text-sm">
+                <Button size="lg" variant="secondary">
+                  <Phone className="mr-2 h-4 w-4" />
+                  Get Free Consultation
+                </Button>
+              </a>
+              <Link href={"/contact"}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                >
+                  Find Service Center
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </CardContent>
         </Card>

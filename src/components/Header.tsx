@@ -77,7 +77,9 @@ export function Header({ onGetQuote }: HeaderProps) {
         <div className="hidden md:flex items-center gap-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Phone className="h-4 w-4" />
-            <span>+91-XXX-XXX-XXXX</span>
+            <a href="tel:+917276050250" className="text-sm">
+              +91 7276050250
+            </a>
           </div>
           <Button onClick={handleGetQuoteClick}>Get Quote</Button>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>

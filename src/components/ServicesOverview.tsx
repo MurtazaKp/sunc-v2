@@ -21,6 +21,7 @@ import {
   Phone,
   Battery,
 } from "lucide-react";
+import Link from "next/link";
 
 interface ServicesOverviewProps {
   onLearnMore: () => void;
@@ -168,14 +169,14 @@ export function ServicesOverview({ onLearnMore }: ServicesOverviewProps) {
                   ))}
                 </div>
 
-                <Button
+                {/* <Button
                   variant="outline"
                   size="sm"
                   className="w-full group-hover:bg-white group-hover:text-current group-hover:border-current transition-all duration-300 group-hover:shadow-lg"
                 >
                   Learn More
                   <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                </Button> */}
               </CardContent>
             </Card>
           ))}
@@ -265,23 +266,27 @@ export function ServicesOverview({ onLearnMore }: ServicesOverviewProps) {
                 solutions
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  onClick={onLearnMore}
-                  className=""
-                >
-                  Explore All Services
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                >
-                  <Phone className="mr-2 h-4 w-4" />
-                  Call Now (Support)
-                </Button>
+                <Link href={"/services"}>
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    onClick={onLearnMore}
+                    className=""
+                  >
+                    Explore All Services
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <a href="tel:+917276050250" className="text-sm">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                  >
+                    <Phone className="mr-2 h-4 w-4" />
+                    Call Now (Support)
+                  </Button>
+                </a>
               </div>
             </CardContent>
           </Card>

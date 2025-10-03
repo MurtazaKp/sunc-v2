@@ -239,14 +239,14 @@ export function IndustriesServed({ onExplore }: IndustriesServedProps) {
                   ))}
                 </div>
 
-                <Button
+                {/* <Button
                   variant="outline"
                   size="sm"
                   className="w-full group-hover:bg-white group-hover:text-current group-hover:border-current transition-all duration-300 group-hover:shadow-lg"
                 >
                   View Case Study
                   <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                </Button> */}
               </CardContent>
             </Card>
           ))}
@@ -460,14 +460,16 @@ export function IndustriesServed({ onExplore }: IndustriesServedProps) {
                   Explore Industry Solutions
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                >
-                  <Phone className="mr-2 h-4 w-4" />
-                  Call Now (Support)
-                </Button>
+                <a href="tel:+917276050250" className="text-sm">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                  >
+                    <Phone className="mr-2 h-4 w-4" />
+                    Call Now (Support)
+                  </Button>
+                </a>
               </div>
             </CardContent>
           </Card>

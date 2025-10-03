@@ -233,51 +233,63 @@ export function FAQ() {
                 <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
                   <CardContent className="p-4 text-center">
                     <Phone className="h-8 w-8 mx-auto mb-3 animate-pulse" />
-                    <h4 className="text-lg mb-2">Call Support</h4>
+                    <h4 className="text-lg mb-2 text-white">Call Support</h4>
                     <p className="text-blue-100 text-sm mb-3">
                       Get instant help from our experts
                     </p>
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="bg-white text-blue-600 hover:bg-blue-50"
-                    >
-                      Call Now (Support)
-                    </Button>
+                    <a href="tel:+917276050250" className="text-sm">
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        className="bg-white  hover:bg-blue-50"
+                      >
+                        Call Now (Support)
+                      </Button>
+                    </a>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
                   <CardContent className="p-4 text-center">
                     <MessageCircle className="h-8 w-8 mx-auto mb-3 animate-pulse" />
-                    <h4 className="text-lg mb-2">WhatsApp Chat</h4>
+                    <h4 className="text-lg mb-2 text-white">WhatsApp Chat</h4>
                     <p className="text-blue-100 text-sm mb-3">
                       Quick responses via WhatsApp
                     </p>
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="bg-white text-blue-600 hover:bg-blue-50"
+                    <a
+                      href="https://wa.me/917276050250"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm"
                     >
-                      Chat Now
-                    </Button>
+                      {" "}
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        className="bg-white hover:bg-blue-50"
+                      >
+                        Chat Now
+                      </Button>{" "}
+                    </a>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-white/10 border-white/20 backdrop-blur-sm">
                   <CardContent className="p-4 text-center">
                     <Mail className="h-8 w-8 mx-auto mb-3 animate-pulse" />
-                    <h4 className="text-lg mb-2">Email Support</h4>
+                    <h4 className="text-lg mb-2 text-white">Email Support</h4>
                     <p className="text-blue-100 text-sm mb-3">
                       Detailed technical assistance
                     </p>
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="bg-white text-blue-600 hover:bg-blue-50"
-                    >
-                      Send Email
-                    </Button>
+                    <a href="mailto:info@suncbattery.com" className="text-sm">
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        className="bg-white  hover:bg-blue-50"
+                      >
+                        Send Email
+                      </Button>
+                    </a>
                   </CardContent>
                 </Card>
               </div>

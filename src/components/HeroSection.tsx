@@ -244,14 +244,16 @@ export function HeroSection({ onGetQuote }: HeroSectionProps) {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-green-600 hover:from-green-600 hover:to-primary transition-all duration-300"
-                  onClick={onGetQuote}
-                >
-                  Get Free Quote
-                  <ArrowRight className="ml-2 h-5 w-5 animate-pulse" />
-                </Button>
+                <a href="tel:+917276050250" className="text-sm">
+                  <Button
+                    size="lg"
+                    className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-green-600 hover:from-green-600 hover:to-primary transition-all duration-300"
+                    onClick={onGetQuote}
+                  >
+                    Get Free Quote
+                    <ArrowRight className="ml-2 h-5 w-5 animate-pulse" />
+                  </Button>
+                </a>
 
                 {/* Button to open the Modal */}
                 <Button
@@ -396,14 +398,16 @@ export function HeroSection({ onGetQuote }: HeroSectionProps) {
                   >
                     Start Saving Today
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                  >
-                    Call Now (Support)
-                    <Phone className="ml-2 h-4 w-4" />
-                  </Button>
+                  <a href="tel:+917276050250" className="text-sm">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                    >
+                      Call Now (Support)
+                      <Phone className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
                 </div>
               </div>
             </CardContent>

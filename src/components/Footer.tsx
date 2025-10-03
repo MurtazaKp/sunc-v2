@@ -204,16 +204,21 @@ export function Footer({ onGetQuote }: FooterProps) {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-muted-foreground animate-pulse" />
-                <span className="text-sm">1800-XXX-XXXX (Toll Free)</span>
+                <a href="tel:+917276050250" className="text-sm">
+                  +91 7276050250
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-muted-foreground animate-pulse" />
-                <span className="text-sm">info@suncbattery.com</span>
+                <a href="mailto:info@suncbattery.com" className="text-sm">
+                  info@suncbattery.com
+                </a>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-muted-foreground mt-0.5 animate-pulse" />
                 <span className="text-sm">
-                  Head Office: 123 Battery Street, Mumbai, Maharashtra 400001
+                  Sr.No.25, Opposite Savali Dhaba, Sinhgad Rd, nr. Swami Samarth
+                  Temple, Nanded Fata, Pune, Maharashtra 411068
                 </span>
               </div>
             </div>
@@ -276,23 +281,6 @@ export function Footer({ onGetQuote }: FooterProps) {
 
           {/* Service Centers & CTA */}
           <div className="space-y-4">
-            <h3 className="text-lg flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-primary animate-pulse" />
-              Service Centers
-            </h3>
-            <div className="space-y-2">
-              {serviceCenters.slice(0, 4).map((center) => (
-                <div key={center.city} className="text-sm">
-                  <div className="font-medium text-muted-foreground">
-                    {center.city}
-                  </div>
-                  <div className="text-xs text-primary hover:underline cursor-pointer">
-                    {center.contact}
-                  </div>
-                </div>
-              ))}
-            </div>
-
             {/* Quote CTA */}
             <Card className="mt-6 bg-gradient-to-r from-primary/5 to-green-500/5 border-primary/20">
               <CardContent className="p-4 text-center">
@@ -316,14 +304,16 @@ export function Footer({ onGetQuote }: FooterProps) {
                 <Phone className="h-5 w-5 text-red-600 mx-auto mb-2 animate-pulse" />
                 <div className="text-sm">Emergency Support</div>
                 <div className="text-xs text-red-600">24/7 Available</div>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="mt-2 text-red-600 border-red-300 hover:bg-red-100 hover:scale-105 transition-transform"
-                >
-                  <MessageCircle className="mr-2 h-3 w-3 animate-pulse" />
-                  Call Now (Support)
-                </Button>
+                <a href="tel:+917276050250" className="text-sm">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="mt-2 text-red-600 border-red-300 hover:bg-red-100 hover:scale-105 transition-transform"
+                  >
+                    <MessageCircle className="mr-2 h-3 w-3 animate-pulse" />
+                    Call Now (Support)
+                  </Button>
+                </a>
               </CardContent>
             </Card>
           </div>

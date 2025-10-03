@@ -62,28 +62,30 @@ export function Contact() {
     {
       icon: Phone,
       title: "Phone Support",
-      details: ["+91-XXX-XXX-XXXX", "+91-XXX-XXX-XXXX"],
+      details: ["+917276050250"],
       description: "24/7 technical support",
       color: "text-blue-600",
     },
     {
       icon: MessageCircle,
       title: "WhatsApp",
-      details: ["+91-XXX-XXX-XXXX"],
+      details: ["+917276050250"],
       description: "Quick responses, file sharing",
       color: "text-green-600",
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@suncbattery.com", "support@suncbattery.com"],
+      details: [" info@suncbattery.com"],
       description: "Detailed inquiries & quotes",
       color: "text-purple-600",
     },
     {
       icon: Building,
       title: "Corporate Office",
-      details: ["123 Battery Street", "Mumbai, Maharashtra 400001"],
+      details: [
+        "Sr.No.25, Opposite Savali Dhaba, Sinhgad Rd, nr. Swami Samarth Temple, Nanded Fata, Pune, Maharashtra 411068",
+      ],
       description: "Mon-Sat: 9:00 AM - 6:00 PM",
       color: "text-orange-600",
     },
@@ -330,14 +332,23 @@ export function Contact() {
                   <CardContent className="p-6 space-y-4">
                     <h3 className="text-lg">Need Immediate Assistance?</h3>
                     <div className="grid grid-cols-2 gap-4">
-                      <Button className="w-full">
-                        <Phone className="mr-2 h-4 w-4" />
-                        Call Now
-                      </Button>
-                      <Button variant="outline" className="w-full">
-                        <MessageCircle className="mr-2 h-4 w-4" />
-                        WhatsApp
-                      </Button>
+                      <a href="tel:+917276050250" className="text-sm">
+                        <Button className="w-full">
+                          <Phone className="mr-2 h-4 w-4" />
+                          Call Now
+                        </Button>
+                      </a>
+                      <a
+                        href="https://wa.me/917276050250"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm"
+                      >
+                        <Button variant="outline" className="w-full">
+                          <MessageCircle className="mr-2 h-4 w-4" />
+                          WhatsApp
+                        </Button>
+                      </a>
                     </div>
                   </CardContent>
                 </Card>

@@ -82,22 +82,19 @@ export function AboutUs() {
 
   const leadership = [
     {
-      name: "Rajesh Kumar",
-      role: "Founder & CEO",
-      description:
-        "Visionary leader with 15+ years in renewable energy and battery technology innovation.",
+      img: "/leadership/leaderThree.jpeg",
+      name: "JAGDISH SHIVAJI JADHAV",
+      role: "Director",
     },
     {
-      name: "Priya Sharma",
-      role: "Chief Technology Officer",
-      description:
-        "Expert in battery regeneration technology with multiple patents in sustainable energy solutions.",
+      img: "/leadership/leaderOne.jpeg",
+      name: "PALLAVI JAGDISH JADHAV",
+      role: "Director",
     },
     {
-      name: "Amit Patel",
-      role: "Head of Operations",
-      description:
-        "Operations specialist ensuring quality and efficiency across all 75+ service centers.",
+      img: "/leadership/leaderTwo.jpeg",
+      name: "AMOL JADHAV",
+      role: "Business Development Manager",
     },
   ];
 
@@ -255,22 +252,24 @@ export function AboutUs() {
             {leadership.map((leader, index) => (
               <Card key={index} className="text-center">
                 <CardContent className="p-6 space-y-4">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 mx-auto flex items-center justify-center">
-                    <Users className="h-8 w-8 text-primary" />
+                  {/* Change applied here: Added 'h-64' and 'overflow-hidden' */}
+                  <div className="mx-auto rounded-lg flex items-center justify-center h-96 overflow-hidden">
+                    {/* Change applied here: Added 'h-full', 'w-full', and 'object-cover' */}
+                    <img
+                      src={leader.img}
+                      alt="leader"
+                      className="h-full w-full "
+                    />
                   </div>
                   <div>
                     <h3 className="text-lg">{leader.name}</h3>
                     <p className="text-sm text-primary mb-2">{leader.role}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {leader.description}
-                    </p>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
-
         {/* Call to Action */}
         <Card className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground">
           <CardContent className="p-8 text-center space-y-6">

@@ -428,7 +428,7 @@ export function BecomePartner() {
                 partners@sun-c.com
               </a>
               <a
-                href="https://wa.me/91XXXXXXXXX"
+                href="https://wa.me/917276050250"
                 className="flex items-center gap-2 text-green-600 hover:underline"
               >
                 <MessageCircle className="h-5 w-5" />

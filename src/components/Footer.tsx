@@ -79,24 +79,29 @@ export function Footer({ onGetQuote }: FooterProps) {
   const socialLinks = [
     {
       icon: Facebook,
-      href: "#",
+      href: "https://www.facebook.com/p/Sun-C-Battery-61557737812298/",
       name: "Facebook",
       color: "hover:text-blue-600",
     },
-    { icon: Twitter, href: "#", name: "Twitter", color: "hover:text-blue-400" },
+
     {
       icon: Linkedin,
-      href: "#",
+      href: "https://www.linkedin.com/company/sun-c-battery-regeneration/",
       name: "LinkedIn",
       color: "hover:text-blue-700",
     },
     {
       icon: Instagram,
-      href: "#",
+      href: "https://www.instagram.com/sun_c_battery/?igsh=b2ZvM2xyb25haTNr#",
       name: "Instagram",
       color: "hover:text-pink-600",
     },
-    { icon: Youtube, href: "#", name: "YouTube", color: "hover:text-red-600" },
+    {
+      icon: Youtube,
+      href: "https://www.youtube.com/@SuncBattery",
+      name: "YouTube",
+      color: "hover:text-red-600",
+    },
   ];
 
   const serviceCenters = [
@@ -342,15 +347,16 @@ export function Footer({ onGetQuote }: FooterProps) {
             <span className="text-sm text-muted-foreground">Follow us:</span>
             <div className="flex items-center gap-2">
               {socialLinks.map((social) => (
-                <Button
-                  key={social.name}
-                  variant="ghost"
-                  size="icon"
-                  className={`h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} animate-pulse`}
-                  aria-label={social.name}
-                >
-                  <social.icon className="h-5 w-5" />
-                </Button>
+                <Link target="_blank" key={social.name} href={social.href}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className={`h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color} animate-pulse`}
+                    aria-label={social.name}
+                  >
+                    <social.icon className="h-5 w-5" />
+                  </Button>
+                </Link>
               ))}
             </div>
           </div>

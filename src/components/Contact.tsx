@@ -34,6 +34,7 @@ import {
   Navigation,
   Star,
 } from "lucide-react";
+import Link from "next/link";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -93,59 +94,41 @@ export function Contact() {
 
   const serviceCenters = [
     {
-      city: "Mumbai",
-      name: "SunC Battery Center - Andheri",
+      city: "West Bengal",
+      name: "Alomgir shah- West Bengal",
       address: "Plot 45, MIDC Industrial Area, Andheri East, Mumbai - 400093",
-      phone: "+91-XXX-XXX-XXXX",
+      phone: "+917420886898",
       hours: "9:00 AM - 7:00 PM",
       services: ["Regeneration", "Monitoring", "Sales"],
       rating: 4.8,
     },
     {
       city: "Delhi",
-      name: "SunC Battery Hub - Mayapuri",
+      name: "Biju unninayar -Kerla",
       address: "A-234, Industrial Area, Mayapuri, New Delhi - 110064",
-      phone: "+91-XXX-XXX-XXXX",
+      phone: "+917420886898",
       hours: "9:00 AM - 7:00 PM",
       services: ["Regeneration", "Manufacturing", "Training"],
       rating: 4.9,
     },
     {
-      city: "Bangalore",
-      name: "SunC Battery Solutions - Electronic City",
+      city: "Jharkhand",
+      name: "Pradip mahato-Jharkhand",
       address:
         "Unit 12, Tech Park, Electronic City Phase 1, Bangalore - 560100",
-      phone: "+91-XXX-XXX-XXXX",
+      phone: "+917420886898",
       hours: "9:00 AM - 7:00 PM",
       services: ["Regeneration", "Monitoring", "Support"],
       rating: 4.7,
     },
     {
-      city: "Pune",
-      name: "SunC Battery Center - Hinjewadi",
+      city: "Selam",
+      name: "Jaychandran- Selam",
       address: "Sector 3, Hinjewadi IT Park, Pune - 411057",
-      phone: "+91-XXX-XXX-XXXX",
+      phone: "+917420886898",
       hours: "9:00 AM - 7:00 PM",
       services: ["Regeneration", "Sales", "Training"],
       rating: 4.8,
-    },
-    {
-      city: "Chennai",
-      name: "SunC Battery Hub - Ambattur",
-      address: "No. 45, Industrial Estate, Ambattur, Chennai - 600058",
-      phone: "+91-XXX-XXX-XXXX",
-      hours: "9:00 AM - 7:00 PM",
-      services: ["Regeneration", "Manufacturing", "Support"],
-      rating: 4.6,
-    },
-    {
-      city: "Hyderabad",
-      name: "SunC Battery Center - Gachibowli",
-      address: "Survey No. 123, Gachibowli, Hyderabad - 500032",
-      phone: "+91-XXX-XXX-XXXX",
-      hours: "9:00 AM - 7:00 PM",
-      services: ["Regeneration", "Monitoring", "Sales"],
-      rating: 4.9,
     },
   ];
 
@@ -383,10 +366,10 @@ export function Contact() {
                     </SelectContent>
                   </Select>
 
-                  <Button variant="outline">
+                  {/* <Button variant="outline">
                     <Navigation className="mr-2 h-4 w-4" />
                     Use Location
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
 
@@ -411,20 +394,20 @@ export function Contact() {
                     </CardHeader>
 
                     <CardContent className="space-y-4">
-                      <div className="flex items-start gap-3">
+                      {/* <div className="flex items-start gap-3">
                         <MapPin className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
                         <p className="text-sm">{center.address}</p>
-                      </div>
+                      </div> */}
 
                       <div className="flex items-center gap-3">
                         <Phone className="h-4 w-4 text-muted-foreground" />
                         <p className="text-sm">{center.phone}</p>
                       </div>
 
-                      <div className="flex items-center gap-3">
+                      {/* <div className="flex items-center gap-3">
                         <Clock className="h-4 w-4 text-muted-foreground" />
                         <p className="text-sm">{center.hours}</p>
-                      </div>
+                      </div> */}
 
                       <div className="flex items-start gap-3">
                         <Battery className="h-4 w-4 text-muted-foreground mt-0.5" />
@@ -441,22 +424,25 @@ export function Contact() {
                         </div>
                       </div>
 
-                      <div className="flex gap-2 pt-2">
+                      <Link
+                        href={`tel:${center.phone}`}
+                        className="flex gap-2 pt-2"
+                      >
                         <Button size="sm" className="flex-1">
                           <Phone className="mr-2 h-3 w-3" />
                           Call
                         </Button>
-                        <Button variant="outline" size="sm" className="flex-1">
+                        {/* <Button variant="outline" size="sm" className="flex-1">
                           <Navigation className="mr-2 h-3 w-3" />
                           Directions
-                        </Button>
-                      </div>
+                        </Button> */}
+                      </Link>
                     </CardContent>
                   </Card>
                 ))}
               </div>
 
-              <Card className="mt-8">
+              {/* <Card className="mt-8">
                 <CardContent className="p-8 text-center">
                   <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                   <h3 className="text-lg mb-2">Interactive Map</h3>
@@ -469,7 +455,7 @@ export function Contact() {
                     Open Map View
                   </Button>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </TabsContent>
         </Tabs>

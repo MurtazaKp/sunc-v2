@@ -257,7 +257,7 @@ export function FAQ() {
                       Quick responses via WhatsApp
                     </p>
                     <a
-                      href="https://wa.me/917276050250"
+                      href="https://wa.me/7276050250"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm"

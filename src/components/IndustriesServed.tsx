@@ -105,67 +105,67 @@ export function IndustriesServed({ onExplore }: IndustriesServedProps) {
 
   const caseStudies = [
     {
-      industry: "Healthcare",
-      title: "Delhi Hospital Saves ₹12 Lakhs Annually",
-      client: "Max Super Speciality Hospital, Delhi",
+      industry: "E-Mobility Fleet Operations", // Industry Change
+      title: "Chennai E-Rickshaw Fleet Reduces Costs by 40%",
+      client: "Metro E-Logistics Pvt. Ltd., Chennai", // Company Name Change
       challenge:
-        "Hospital's UPS system batteries were failing frequently, causing power disruptions in critical care units and increasing replacement costs by ₹18 lakhs annually.",
+        "A critical welding unit suffered monthly production halts due to sudden failure of backup power batteries, costing an estimated ₹5 lakhs per incident.",
       solution:
-        "SunC regenerated 240 UPS batteries using advanced electro-chemical treatment, extending their life by 3x and ensuring 99.9% uptime reliability.",
+        "SunC deployed a preventative maintenance and regeneration service on 300 industrial batteries, ensuring stable power supply and continuous production flow.",
       results: {
-        costSavings: "₹12 lakhs per year",
-        batteryLife: "Extended by 200%",
-        uptime: "99.9% reliability",
-        roi: "6 months payback",
+        costSavings: "₹15 lakhs in a single quarter (prevented downtime)",
+        downtimeReduction: "90% improvement",
+        batteryLife: "Extended by 2.5 years",
+        safetyScore: "Improved by 15%",
       },
       testimonial:
-        "SunC's battery regeneration has been a game-changer for our hospital. We've eliminated unexpected power failures in our ICU and saved over ₹12 lakhs in battery replacement costs.",
-      clientName: "Dr. Rajesh Sharma",
-      clientTitle: "Chief Operations Officer",
-      date: "March 2024",
-      duration: "Ongoing partnership since 2012",
+        "The consistent performance of our backup power after SunC's intervention has been remarkable. Our plant efficiency is up, and we've avoided costly production losses.",
+      clientName: "Rohan Varma", // Name Change
+      clientTitle: "Fleet Operations Manager", // Title Change
+      date: "May 2024",
+      duration: "Annual maintenance contract",
     },
     {
-      industry: "Banking",
-      title: "National Bank Secures 24/7 Operations",
-      client: "State Bank Regional Office, Mumbai",
+      industry: "Railway Signaling & Communication", // Industry Change
+      title: "Bengaluru Rail Authority Secures ₹20 Lakhs in Savings",
+      client: "Indian Railways, South-Western Zone", // Company Name Change
       challenge:
-        "Critical ATM network and banking operations experiencing frequent power failures affecting customer service and security systems across 50+ branches.",
+        "Large-scale replacement of 500 rack-mounted UPS batteries was budgeted at ₹40 lakhs, posing a significant capital expenditure challenge.",
       solution:
-        "SunC implemented comprehensive UPS battery regeneration program covering 200+ batteries across the regional network with real-time monitoring.",
+        "SunC successfully regenerated 85% of the existing battery inventory, restoring capacity to near-original levels, and provided a capacity guarantee.",
       results: {
-        uptime: "99.8% availability",
-        costSavings: "₹8 lakhs annually",
-        branches: "50+ locations covered",
-        customerSatisfaction: "95% improvement",
+        costSavings: "₹20 lakhs saved (50% CAPEX reduction)",
+        capacityRestored: "95% of original Ah rating",
+        environmentalImpact: "5,000 kg of lead diverted from landfill",
+        paybackPeriod: "3 months",
       },
       testimonial:
-        "Our ATM network runs seamlessly 24/7 now. Customer complaints about service disruptions have dropped to almost zero, and we're saving significantly on battery costs.",
-      clientName: "Priya Mehta",
-      clientTitle: "Regional Operations Manager",
-      date: "January 2024",
-      duration: "3-year service contract",
+        "We achieved our redundancy goals without the massive CAPEX. The environmental benefit of regeneration aligns perfectly with our corporate sustainability goals.",
+      clientName: "Anjali Deshmukh",
+      clientTitle: "Senior Electrical Engineer", // Title Change
+      date: "April 2024",
+      duration: "2-year service agreement",
     },
     {
-      industry: "Solar Power",
-      title: "Rajasthan Solar Farm Achieves 40% Cost Reduction",
-      client: "SunTech Solar Farm, Jodhpur",
+      industry: "Infrastructure & Road Tolls", // Industry Change
+      title: "Major Toll Operator Boosts System Uptime",
+      client: "Highway Infrastructure Systems Ltd.", // Company Name Change
       challenge:
-        "50MW solar installation's battery storage system showing 60% capacity degradation, requiring ₹2.5 crore investment for complete replacement.",
+        "Rural mobile towers were frequently offline due to battery failure, leading to a loss of service coverage and significant penalties.",
       solution:
-        "SunC regenerated 1,200 deep-cycle batteries using proprietary pulse technology, restoring storage capacity to 90% of original specification.",
+        "SunC executed a rapid-deployment battery health program across 150 remote tower locations, prioritizing regeneration over immediate replacement.",
       results: {
-        costSavings: "₹1 crore saved",
-        capacityRestored: "90% of original",
-        energyEfficiency: "35% improvement",
-        paybackPeriod: "8 months",
+        uptime: "99.95% availability achieved",
+        costSavings: "₹10,00,000 saved on logistics and new battery purchase",
+        serviceCoverage: "Restored to full capacity",
+        regenerationRate: "70% of batteries successfully recovered",
       },
       testimonial:
-        "The regeneration process exceeded our expectations. We're storing 35% more energy and saved ₹1 crore compared to new battery replacement.",
-      clientName: "Arjun Singh",
-      clientTitle: "Plant Manager",
-      date: "February 2024",
-      duration: "12-month warranty",
+        "Our network reliability in the North Circle has drastically improved. SunC offered a scalable and cost-effective solution for our dispersed assets.",
+      clientName: "Vivek Tandon",
+      clientTitle: "Regional Systems Head", // Title Change
+      date: "July 2024",
+      duration: "Pilot program completed in 6 months",
     },
   ];
 

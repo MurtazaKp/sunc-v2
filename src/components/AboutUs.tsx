@@ -82,7 +82,7 @@ export function AboutUs() {
 
   const leadership = [
     {
-      img: "/leadership/leaderThree.jpeg",
+      img: "/leadership/leaderTwo.jpeg",
       name: "JAGDISH SHIVAJI JADHAV",
       role: "Director",
     },
@@ -92,7 +92,7 @@ export function AboutUs() {
       role: "Director",
     },
     {
-      img: "/leadership/leaderTwo.jpeg",
+      img: "/leadership/leaderThree.jpeg",
       name: "AMOL JADHAV",
       role: "Business Development Manager",
     },

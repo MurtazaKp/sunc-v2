@@ -87,12 +87,12 @@ export function AboutUs() {
       role: "Director",
     },
     {
-      img: "/leadership/leaderOne.jpeg",
+      img: "/leadership/leaderThree.jpeg",
       name: "PALLAVI JAGDISH JADHAV",
       role: "Director",
     },
     {
-      img: "/leadership/leaderThree.jpeg",
+      img: "/leadership/leaderOne.jpeg",
       name: "AMOL JADHAV",
       role: "Business Development Manager",
     },

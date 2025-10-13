@@ -162,7 +162,7 @@ export function AboutUs() {
           <Card className="text-center p-6 bg-green-50 border-green-200">
             <CardContent className="space-y-2 p-0">
               <Battery className="h-8 w-8 text-green-600 mx-auto" />
-              <div className="text-3xl text-green-600">15,000+</div>
+              <div className="text-3xl text-green-600">50,000+</div>
               <div className="text-sm text-green-700">
                 Batteries Regenerated
               </div>

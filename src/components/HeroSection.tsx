@@ -84,7 +84,7 @@ export function HeroSection({ onGetQuote }: HeroSectionProps) {
   const trustIndicators = [
     {
       icon: Battery,
-      value: "40,000+",
+      value: "50,000+",
       label: "Batteries Regenerated",
       isAnimated: true,
     },

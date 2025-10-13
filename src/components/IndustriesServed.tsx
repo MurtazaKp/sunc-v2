@@ -373,9 +373,9 @@ export function IndustriesServed({ onExplore }: IndustriesServedProps) {
                               <Users className="h-4 w-4 text-green-600 animate-pulse" />
                             </div>
                             <div>
-                              <div className="text-sm font-medium">
+                              {/* <div className="text-sm font-medium">
                                 {caseStudy.clientName}
-                              </div>
+                              </div> */}
                               <div className="text-xs text-muted-foreground">
                                 {caseStudy.clientTitle}
                               </div>

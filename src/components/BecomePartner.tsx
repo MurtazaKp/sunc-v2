@@ -453,7 +453,7 @@ export function BecomePartner() {
               </Badge>
               <Badge variant="secondary" className="text-sm">
                 <Leaf className="h-3 w-3 mr-1" />
-                15,000+ Batteries Regenerated
+                50,000+ Batteries Regenerated
               </Badge>
               <Badge variant="secondary" className="text-sm">
                 <Award className="h-3 w-3 mr-1" />

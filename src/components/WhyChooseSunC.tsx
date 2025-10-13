@@ -64,7 +64,7 @@ export function WhyChooseSunC() {
   ];
 
   const achievements = [
-    { label: "Batteries Regenerated", value: "15,000+", icon: Battery },
+    { label: "Batteries Regenerated", value: "50,000+", icon: Battery },
     { label: "Service Centers", value: "75+", icon: MapPin },
     { label: "Years of Experience", value: "10+", icon: Award },
     { label: "Customer Satisfaction", value: "98%", icon: Users },

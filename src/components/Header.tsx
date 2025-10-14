@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Menu, Phone } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { GetQuoteDialog } from "./GetQuoteDialog";
 
 interface HeaderProps {
   // onNavigate: (page: string) => void;
@@ -74,8 +75,8 @@ export function Header({ onGetQuote }: HeaderProps) {
         </nav>
 
         {/* Desktop CTA */}
-        <div className=" items-center gap-4">
-          <div className="hidden md:flex">
+        <div className="flex items-center gap-4">
+          <div className="hidden lg:flex gap-3">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Phone className="h-4 w-4" />
               <a href="tel:+917276050250" className="text-sm">
@@ -129,7 +130,7 @@ export function Header({ onGetQuote }: HeaderProps) {
                   <div className="mt-6 pt-6 border-t space-y-3">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Phone className="h-4 w-4" />
-                      <span>+91-XXX-XXX-XXXX</span>
+                      <span>+91 7276050250</span>
                     </div>
                     <Button className="w-full" onClick={handleGetQuoteClick}>
                       Get Quote

@@ -416,11 +416,11 @@ export function GetQuoteDialog({
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <a
-                href="tel:+91XXXXXXXXX"
+                href="tel:+917276050250"
                 className="text-primary hover:underline flex items-center gap-1"
               >
                 <Phone className="h-3 w-3" />
-                +91-XXX-XXX-XXXX
+                +917276050250
               </a>
               <a
                 href="mailto:info@suncbattery.com"

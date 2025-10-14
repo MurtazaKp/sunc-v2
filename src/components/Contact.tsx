@@ -1,26 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
-import { Label } from "./ui/label";
+// Assuming you have shadcn/ui components available at this path:
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "@/components/ui/select";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Phone,
   Mail,
@@ -34,7 +35,39 @@ import {
   Navigation,
   Star,
 } from "lucide-react";
-import Link from "next/link";
+// Removed: import Link from "next/link"; // Replacing with <a> tag to fix compilation
+import { toast } from "sonner"; // Needed for status messages
+
+// ==============================================================================
+// INLINE UTILITY FUNCTION (Self-contained submission logic)
+// !!! REPLACE THIS URL with your deployed Google Apps Script Web App URL !!!
+// ==============================================================================
+const GOOGLE_SHEET_URL =
+  "https://script.google.com/macros/s/AKfycbwreexCEHbnpq06sBiZJpaz7LGjeebMFJiUKjbauEcJygFhf7W3bA_cYbA9rxbqCJO-YA/exec";
+/**
+ * Sends form data to the Google Apps Script Web App.
+ */
+const sendFormData = async (formData: FormData): Promise<object> => {
+  const urlEncodedData = new URLSearchParams(
+    Array.from(formData.entries()).map(([key, value]) => [key, String(value)])
+  ).toString();
+
+  const response = await fetch(GOOGLE_SHEET_URL, {
+    method: "POST",
+    mode: "cors", // Critical for cross-origin requests
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: urlEncodedData,
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  return response.json();
+};
+// ==============================================================================
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -45,18 +78,52 @@ export function Contact() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedCity, setSelectedCity] = useState("all");
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: keyof typeof formData, value: string) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    const targetSheet = "ContactForm"; // Target sheet for this specific form
+
+    const form = new FormData();
+    form.append("targetSheet", targetSheet); // CRITICAL: Tells Apps Script where to route data
+
+    // Map local state keys to the required Google Sheet/Apps Script headers
+    form.append("fullName", formData.name);
+    form.append("emailAddress", formData.email);
+    form.append("phoneNumber", formData.phone);
+    form.append("serviceInterest", formData.service);
+    form.append("message", formData.message);
+
+    try {
+      await sendFormData(form);
+
+      toast.success("Request sent! We'll get back to you within 24 hours.");
+
+      // Reset form fields
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Submission failed:", error);
+      toast.error("Submission Failed", {
+        description: "Could not send data. Check console for details.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -189,6 +256,7 @@ export function Contact() {
                         <Label htmlFor="name">Full Name *</Label>
                         <Input
                           id="name"
+                          name="FullName" // Match Apps Script Header
                           placeholder="Your full name"
                           value={formData.name}
                           onChange={(e) =>
@@ -201,6 +269,7 @@ export function Contact() {
                         <Label htmlFor="phone">Phone Number *</Label>
                         <Input
                           id="phone"
+                          name="PhoneNumber" // Match Apps Script Header
                           placeholder="+91 XXXXX XXXXX"
                           value={formData.phone}
                           onChange={(e) =>
@@ -216,6 +285,7 @@ export function Contact() {
                       <Input
                         id="email"
                         type="email"
+                        name="EmailAddress" // Match Apps Script Header
                         placeholder="your.email@example.com"
                         value={formData.email}
                         onChange={(e) =>
@@ -228,6 +298,7 @@ export function Contact() {
                     <div className="space-y-2">
                       <Label htmlFor="service">Service Interest</Label>
                       <Select
+                        name="ServiceInterest" // Match Apps Script Header
                         value={formData.service}
                         onValueChange={(value) =>
                           handleInputChange("service", value)
@@ -260,6 +331,7 @@ export function Contact() {
                       <Label htmlFor="message">Message</Label>
                       <Textarea
                         id="message"
+                        name="Message" // Match Apps Script Header
                         placeholder="Tell us about your battery requirements, number of batteries, applications, etc."
                         rows={4}
                         value={formData.message}
@@ -269,9 +341,23 @@ export function Contact() {
                       />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full">
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Request
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-4 w-4" />
+                          Send Request
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
@@ -365,11 +451,6 @@ export function Contact() {
                       ))}
                     </SelectContent>
                   </Select>
-
-                  {/* <Button variant="outline">
-                    <Navigation className="mr-2 h-4 w-4" />
-                    Use Location
-                  </Button> */}
                 </div>
               </div>
 
@@ -394,20 +475,10 @@ export function Contact() {
                     </CardHeader>
 
                     <CardContent className="space-y-4">
-                      {/* <div className="flex items-start gap-3">
-                        <MapPin className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
-                        <p className="text-sm">{center.address}</p>
-                      </div> */}
-
                       <div className="flex items-center gap-3">
                         <Phone className="h-4 w-4 text-muted-foreground" />
                         <p className="text-sm">{center.phone}</p>
                       </div>
-
-                      {/* <div className="flex items-center gap-3">
-                        <Clock className="h-4 w-4 text-muted-foreground" />
-                        <p className="text-sm">{center.hours}</p>
-                      </div> */}
 
                       <div className="flex items-start gap-3">
                         <Battery className="h-4 w-4 text-muted-foreground mt-0.5" />
@@ -424,7 +495,7 @@ export function Contact() {
                         </div>
                       </div>
 
-                      <Link
+                      <a // Replaced Link component with <a> tag
                         href={`tel:${center.phone}`}
                         className="flex gap-2 pt-2"
                       >
@@ -432,30 +503,11 @@ export function Contact() {
                           <Phone className="mr-2 h-3 w-3" />
                           Call
                         </Button>
-                        {/* <Button variant="outline" size="sm" className="flex-1">
-                          <Navigation className="mr-2 h-3 w-3" />
-                          Directions
-                        </Button> */}
-                      </Link>
+                      </a>
                     </CardContent>
                   </Card>
                 ))}
               </div>
-
-              {/* <Card className="mt-8">
-                <CardContent className="p-8 text-center">
-                  <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-lg mb-2">Interactive Map</h3>
-                  <p className="text-muted-foreground mb-4">
-                    View all service centers on an interactive map with
-                    directions and real-time information
-                  </p>
-                  <Button>
-                    <Search className="mr-2 h-4 w-4" />
-                    Open Map View
-                  </Button>
-                </CardContent>
-              </Card> */}
             </div>
           </TabsContent>
         </Tabs>
